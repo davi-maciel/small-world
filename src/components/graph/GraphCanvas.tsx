@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { OLYMPIADS } from '@/config/olympiads';
 import type { OlympiadId } from '@/config/olympiads';
@@ -34,16 +34,33 @@ interface GraphCanvasProps {
 export function GraphCanvas({ nodes, links, onNodeClick }: GraphCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const graphRef = useRef<any>(null);
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (graphRef.current && containerRef.current) {
-        graphRef.current.width(containerRef.current.clientWidth);
-        graphRef.current.height(containerRef.current.clientHeight);
+    const update = () => {
+      if (containerRef.current) {
+        setDimensions({
+          width: containerRef.current.clientWidth,
+          height: containerRef.current.clientHeight,
+        });
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  useEffect(() => {
+    if (graphRef.current) {
+      graphRef.current.d3Force('charge').strength(-200);
+      graphRef.current.d3Force('link').distance(80);
+    }
+  }, [nodes, links]);
+
+  const handleEngineStop = useCallback(() => {
+    if (graphRef.current) {
+      graphRef.current.zoomToFit(400, 80);
+    }
   }, []);
 
   const handleNodeClick = useCallback(
@@ -100,26 +117,29 @@ export function GraphCanvas({ nodes, links, onNodeClick }: GraphCanvasProps) {
   }, []);
 
   return (
-    <div ref={containerRef} className="h-[500px] w-full border border-gray-200 rounded-lg overflow-hidden">
-      <ForceGraph2D
-        ref={graphRef}
-        graphData={{ nodes, links }}
-        nodeCanvasObject={nodeCanvasObject}
-        nodePointerAreaPaint={(node: any, color: string, ctx: CanvasRenderingContext2D, globalScale: number) => {
-          const radius = node.isRoot ? 8 / globalScale : 5 / globalScale;
-          ctx.beginPath();
-          ctx.arc(node.x, node.y, radius + 4 / globalScale, 0, 2 * Math.PI);
-          ctx.fillStyle = color;
-          ctx.fill();
-        }}
-        onNodeClick={handleNodeClick}
-        linkColor={linkColor}
-        linkWidth={1.5}
-        linkCurvature={linkCurvature}
-        width={containerRef.current?.clientWidth}
-        height={500}
-        cooldownTicks={100}
-      />
+    <div ref={containerRef} className="h-[350px] w-full border border-gray-200 rounded-lg overflow-hidden sm:h-[500px]">
+      {dimensions && (
+        <ForceGraph2D
+          ref={graphRef}
+          graphData={{ nodes, links }}
+          nodeCanvasObject={nodeCanvasObject}
+          nodePointerAreaPaint={(node: any, color: string, ctx: CanvasRenderingContext2D, globalScale: number) => {
+            const radius = node.isRoot ? 8 / globalScale : 5 / globalScale;
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, radius + 4 / globalScale, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+          }}
+          onNodeClick={handleNodeClick}
+          onEngineStop={handleEngineStop}
+          linkColor={linkColor}
+          linkWidth={1.5}
+          linkCurvature={linkCurvature}
+          width={dimensions.width}
+          height={dimensions.height}
+          cooldownTicks={100}
+        />
+      )}
     </div>
   );
 }

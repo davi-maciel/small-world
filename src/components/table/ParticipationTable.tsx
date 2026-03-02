@@ -94,7 +94,7 @@ export function ParticipationTable({ students }: ParticipationTableProps) {
     return <span className="ml-1">{sortDirection === 'asc' ? '↑' : '↓'}</span>;
   };
 
-  const headerClass = 'px-4 py-2 text-left text-sm font-medium text-gray-700 cursor-pointer select-none hover:bg-gray-50';
+  const headerClass = 'px-2 py-2 text-left text-sm font-medium text-gray-700 cursor-pointer select-none hover:bg-gray-50 sm:px-4';
 
   return (
     <div className="overflow-x-auto">
@@ -120,12 +120,12 @@ export function ParticipationTable({ students }: ParticipationTableProps) {
             const config = OLYMPIADS[row.olympiad as OlympiadId];
             return (
               <tr key={i} className="border-b border-gray-100 hover:bg-gray-50">
-                <td className="px-4 py-2 text-gray-900">{row.name}</td>
-                <td className="px-4 py-2" style={{ color: config?.color }}>
+                <td className="px-2 py-2 text-gray-900 sm:px-4">{row.name}</td>
+                <td className="px-2 py-2 sm:px-4" style={{ color: config?.color }}>
                   {config?.name ?? row.olympiad}
                 </td>
-                <td className="px-4 py-2 text-gray-700">{row.year}</td>
-                <td className="px-4 py-2 text-gray-700">
+                <td className="px-2 py-2 text-gray-700 sm:px-4">{row.year}</td>
+                <td className="px-2 py-2 text-gray-700 sm:px-4">
                   {row.medal ? MEDAL_LABELS[row.medal] ?? row.medal : '—'}
                 </td>
               </tr>

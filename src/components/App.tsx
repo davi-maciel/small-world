@@ -31,18 +31,18 @@ export function App({ data }: AppProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="mx-auto max-w-4xl px-4 py-8">
-        <h1 className="font-serif text-4xl tracking-wide mb-6">🌐 SMALL WORLD</h1>
+      <div className="mx-auto max-w-4xl px-4 py-4 sm:py-8">
+        <h1 className="font-serif text-3xl tracking-wide mb-4 sm:text-4xl sm:mb-6">🌐 SMALL WORLD</h1>
 
         <TabGroup>
-          <TabList className="flex gap-1 border-b border-gray-200 mb-6">
-            <Tab className="px-4 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent data-[selected]:border-gray-900 data-[selected]:text-gray-900 outline-none cursor-pointer">
+          <TabList className="flex gap-1 overflow-x-auto border-b border-gray-200 mb-4 sm:mb-6">
+            <Tab className="shrink-0 px-3 py-2 text-sm font-medium text-gray-600 whitespace-nowrap border-b-2 border-transparent data-[selected]:border-gray-900 data-[selected]:text-gray-900 outline-none cursor-pointer sm:px-4">
               Participações
             </Tab>
-            <Tab className="px-4 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent data-[selected]:border-gray-900 data-[selected]:text-gray-900 outline-none cursor-pointer">
+            <Tab className="shrink-0 px-3 py-2 text-sm font-medium text-gray-600 whitespace-nowrap border-b-2 border-transparent data-[selected]:border-gray-900 data-[selected]:text-gray-900 outline-none cursor-pointer sm:px-4">
               Grau de Separação
             </Tab>
-            <Tab className="px-4 py-2 text-sm font-medium text-gray-600 border-b-2 border-transparent data-[selected]:border-gray-900 data-[selected]:text-gray-900 outline-none cursor-pointer">
+            <Tab className="shrink-0 px-3 py-2 text-sm font-medium text-gray-600 whitespace-nowrap border-b-2 border-transparent data-[selected]:border-gray-900 data-[selected]:text-gray-900 outline-none cursor-pointer sm:px-4">
               Explorar Grafo
             </Tab>
           </TabList>

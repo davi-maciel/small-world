@@ -6,3 +6,4 @@ next-env.d.ts
 .claude/
 SCRAPING_PLAN.md
 SPEC.md
+.vercel

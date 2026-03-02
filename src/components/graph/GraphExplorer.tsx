@@ -182,15 +182,20 @@ export function GraphExplorer({
 
       {state.rootId ? (
         <>
+          <div className="sm:hidden">
+            <GraphLegend />
+          </div>
           <GraphCanvas
             nodes={nodes}
             links={links}
             onNodeClick={handleNodeClick}
           />
-          <GraphLegend />
+          <div className="hidden sm:block">
+            <GraphLegend />
+          </div>
         </>
       ) : (
-        <div className="flex items-center justify-center h-[500px] border border-gray-200 rounded-lg text-gray-400 text-sm">
+        <div className="flex items-center justify-center h-[350px] border border-gray-200 rounded-lg text-gray-400 text-sm sm:h-[500px]">
           Selecione um estudante para explorar o grafo.
         </div>
       )}
