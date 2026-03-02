@@ -1,0 +1,38 @@
+{
+  "name": "small-world",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "scrape:ipho": "tsx scripts/scrapers/ipho-unofficial.ts",
+    "scrape:ipho:supplement": "tsx scripts/scrapers/ipho-supplementary.ts",
+    "scrape:eupho": "tsx scripts/scrapers/eupho-pdfs.ts",
+    "scrape:all": "npm run scrape:ipho && npm run scrape:ipho:supplement && npm run scrape:eupho",
+    "build:graph": "tsx scripts/build-graph.ts",
+    "data:refresh": "npm run scrape:all && npm run build:graph"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "tsx": "^4.21.0",
+    "unpdf": "^1.4.0",
+    "zod": "^4.3.6"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25.3.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "fuse.js": "^7.1.0",
+    "next": "^16.1.6",
+    "postcss": "^8.5.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-force-graph-2d": "^1.29.1",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  }
+}
