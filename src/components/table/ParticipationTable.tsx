@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Student } from '@/types/graph';
-import { OLYMPIADS } from '@/config/olympiads';
+import { OLYMPIADS, OLYMPIAD_IDS } from '@/config/olympiads';
 import type { OlympiadId } from '@/config/olympiads';
 
 interface ParticipationRow {
@@ -36,6 +36,8 @@ interface ParticipationTableProps {
 export function ParticipationTable({ students }: ParticipationTableProps) {
   const [sortColumn, setSortColumn] = useState<SortColumn>('name');
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+  const [filterOlympiad, setFilterOlympiad] = useState<string>('all');
+  const [filterYear, setFilterYear] = useState<string>('all');
 
   const rows = useMemo(() => {
     const result: ParticipationRow[] = [];
@@ -52,8 +54,21 @@ export function ParticipationTable({ students }: ParticipationTableProps) {
     return result;
   }, [students]);
 
+  const years = useMemo(
+    () => [...new Set(rows.map((r) => r.year))].sort((a, b) => b - a),
+    [rows]
+  );
+
+  const filteredRows = useMemo(() => {
+    return rows.filter((r) => {
+      if (filterOlympiad !== 'all' && r.olympiad !== filterOlympiad) return false;
+      if (filterYear !== 'all' && r.year !== Number(filterYear)) return false;
+      return true;
+    });
+  }, [rows, filterOlympiad, filterYear]);
+
   const sortedRows = useMemo(() => {
-    const sorted = [...rows];
+    const sorted = [...filteredRows];
     const dir = sortDirection === 'asc' ? 1 : -1;
 
     sorted.sort((a, b) => {
@@ -78,7 +93,7 @@ export function ParticipationTable({ students }: ParticipationTableProps) {
     });
 
     return sorted;
-  }, [rows, sortColumn, sortDirection]);
+  }, [filteredRows, sortColumn, sortDirection]);
 
   const handleSort = (column: SortColumn) => {
     if (sortColumn === column) {
@@ -96,8 +111,33 @@ export function ParticipationTable({ students }: ParticipationTableProps) {
 
   const headerClass = 'px-2 py-2 text-left text-sm font-medium text-gray-700 cursor-pointer select-none hover:bg-gray-50 sm:px-4';
 
+  const selectClass = 'rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500';
+
   return (
-    <div className="overflow-x-auto">
+    <div>
+      <div className="flex gap-3 mb-4">
+        <select
+          value={filterOlympiad}
+          onChange={(e) => setFilterOlympiad(e.target.value)}
+          className={selectClass}
+        >
+          <option value="all">Todas as olimpíadas</option>
+          {OLYMPIAD_IDS.map((id) => (
+            <option key={id} value={id}>{OLYMPIADS[id].name}</option>
+          ))}
+        </select>
+        <select
+          value={filterYear}
+          onChange={(e) => setFilterYear(e.target.value)}
+          className={selectClass}
+        >
+          <option value="all">Todos os anos</option>
+          {years.map((y) => (
+            <option key={y} value={y}>{y}</option>
+          ))}
+        </select>
+      </div>
+      <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b border-gray-200">
@@ -133,6 +173,7 @@ export function ParticipationTable({ students }: ParticipationTableProps) {
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

@@ -14,6 +14,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://smallworld.ipho.com.br'),
   title: 'Small World',
   description: 'Conexões entre estudantes brasileiros em olimpíadas internacionais de física.',
   openGraph: {
