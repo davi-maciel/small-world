@@ -15,6 +15,12 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: 'Small World',
+  description: 'Conexões entre estudantes brasileiros em olimpíadas internacionais de física.',
+  openGraph: {
+    title: 'Small World',
+    description: 'Conexões entre estudantes brasileiros em olimpíadas internacionais de física.',
+    images: [{ url: '/og.png' }],
+  },
 };
 
 export default function RootLayout({
