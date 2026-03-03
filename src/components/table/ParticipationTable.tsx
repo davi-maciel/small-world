@@ -134,33 +134,83 @@ export function ParticipationTable({ students }: ParticipationTableProps) {
     return <span className="text-gray-400 ml-1">{arrow}</span>;
   };
 
+  const [copied, setCopied] = useState(false);
+
+  const displayRow = (row: ParticipationRow) => ({
+    name: row.name,
+    olympiad: OLYMPIADS[row.olympiad as OlympiadId]?.name ?? row.olympiad,
+    year: String(row.year),
+    medal: row.medal ? MEDAL_LABELS[row.medal] ?? row.medal : '—',
+  });
+
+  const handleCopyMarkdown = () => {
+    const header = '| Nome | Olimpíada | Ano | Premiação |';
+    const separator = '|------|-----------|-----|-----------|';
+    const lines = sortedRows.map((row) => {
+      const d = displayRow(row);
+      return `| ${d.name} | ${d.olympiad} | ${d.year} | ${d.medal} |`;
+    });
+    navigator.clipboard.writeText([header, separator, ...lines].join('\n'));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleExportCSV = () => {
+    const header = 'Nome,Olimpíada,Ano,Premiação';
+    const lines = sortedRows.map((row) => {
+      const d = displayRow(row);
+      const escape = (s: string) => s.includes(',') ? `"${s}"` : s;
+      return [d.name, d.olympiad, d.year, d.medal].map(escape).join(',');
+    });
+    const csv = '\uFEFF' + [header, ...lines].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'participacoes.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const headerClass = 'px-2 py-2 text-left text-sm font-medium text-gray-700 cursor-pointer select-none hover:bg-gray-50 sm:px-4';
 
   const selectClass = 'rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500';
 
+  const buttonClass = 'rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer select-none';
+
   return (
     <div>
-      <div className="flex gap-3 mb-4">
-        <select
-          value={filterOlympiad}
-          onChange={(e) => setFilterOlympiad(e.target.value)}
-          className={selectClass}
-        >
-          <option value="all">Todas as olimpíadas</option>
-          {OLYMPIAD_IDS.map((id) => (
-            <option key={id} value={id}>{OLYMPIADS[id].name}</option>
-          ))}
-        </select>
-        <select
-          value={filterYear}
-          onChange={(e) => setFilterYear(e.target.value)}
-          className={selectClass}
-        >
-          <option value="all">Todos os anos</option>
-          {years.map((y) => (
-            <option key={y} value={y}>{y}</option>
-          ))}
-        </select>
+      <div className="flex flex-col gap-3 mb-4 sm:flex-row sm:justify-between">
+        <div className="flex gap-3">
+          <select
+            value={filterOlympiad}
+            onChange={(e) => setFilterOlympiad(e.target.value)}
+            className={selectClass}
+          >
+            <option value="all">Todas as olimpíadas</option>
+            {OLYMPIAD_IDS.map((id) => (
+              <option key={id} value={id}>{OLYMPIADS[id].name}</option>
+            ))}
+          </select>
+          <select
+            value={filterYear}
+            onChange={(e) => setFilterYear(e.target.value)}
+            className={selectClass}
+          >
+            <option value="all">Todos os anos</option>
+            {years.map((y) => (
+              <option key={y} value={y}>{y}</option>
+            ))}
+          </select>
+        </div>
+        <div className="flex gap-3">
+          <button onClick={handleCopyMarkdown} className={buttonClass}>
+            {copied ? 'Copiado!' : 'Copiar Markdown'}
+          </button>
+          <button onClick={handleExportCSV} className={buttonClass}>
+            Exportar CSV
+          </button>
+        </div>
       </div>
       <div className="overflow-x-auto">
       <table className="w-full text-sm">
