@@ -95,29 +95,6 @@ function hasAccents(name: string): boolean {
   return /[À-ÖØ-öø-ÿ]/.test(name);
 }
 
-// --- Disambiguation check ---
-
-const flags: Array<{ slug: string; years: number[]; name: string }> = [];
-
-for (const [slug, student] of studentsBySlug) {
-  const years = [...student.participations.values()].map((p) => p.year);
-  const span = Math.max(...years) - Math.min(...years);
-  if (span > 8) {
-    flags.push({ slug, years: years.sort(), name: student.displayName });
-  }
-}
-
-if (flags.length > 0) {
-  console.warn(`\nDisambiguation flags (year span > 8):`);
-  for (const f of flags) {
-    console.warn(`  ${f.name} (${f.slug}): years ${f.years.join(", ")}`);
-  }
-  writeFileSync(
-    "data/disambiguation-flags.json",
-    JSON.stringify(flags, null, 2)
-  );
-}
-
 // --- Build graph ---
 
 const students: Record<string, StudentRecord> = {};
@@ -201,8 +178,14 @@ console.log(
 );
 
 try {
-  validateGraph(graph);
-  console.log("Validation passed!");
+  const { warnings } = validateGraph(graph);
+  if (warnings.length > 0) {
+    console.warn(`\n⚠ ${warnings.length} warning(s):`);
+    for (const w of warnings) {
+      console.warn(`  ${w}`);
+    }
+  }
+  console.log("\nValidation passed!");
 } catch (e) {
   console.error("Validation FAILED:", e);
   process.exit(1);

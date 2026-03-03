@@ -36,8 +36,15 @@ const GraphSchema = z.object({
 
 export type Graph = z.infer<typeof GraphSchema>;
 
-export function validateGraph(data: unknown): Graph {
+const MAX_TEAM_SIZE: Record<string, number> = {
+  oibf: 4,
+  ipho: 5,
+  eupho: 5,
+};
+
+export function validateGraph(data: unknown): { graph: Graph; warnings: string[] } {
   const graph = GraphSchema.parse(data);
+  const warnings: string[] = [];
 
   const studentIds = new Set(Object.keys(graph.students));
 
@@ -101,5 +108,55 @@ export function validateGraph(data: unknown): Graph {
     }
   }
 
-  return graph;
+  // --- Anomaly detection (warnings, not errors) ---
+
+  // 1. Team size limits per (olympiad, year)
+  const teams = new Map<string, string[]>();
+  for (const [id, student] of Object.entries(graph.students)) {
+    for (const p of student.participations) {
+      const key = `${p.olympiad}-${p.year}`;
+      let team = teams.get(key);
+      if (!team) {
+        team = [];
+        teams.set(key, team);
+      }
+      team.push(id);
+    }
+  }
+  for (const [key, members] of teams) {
+    const [olympiad] = key.split("-");
+    const max = MAX_TEAM_SIZE[olympiad];
+    if (max && members.length > max) {
+      warnings.push(
+        `Team size exceeded: ${key} has ${members.length} students (max ${max}): ${members.join(", ")}`
+      );
+    }
+  }
+
+  // 2. Suspicious year span per student (> 2 years)
+  for (const [id, student] of Object.entries(graph.students)) {
+    const years = student.participations.map((p) => p.year);
+    const span = Math.max(...years) - Math.min(...years);
+    if (span > 2) {
+      warnings.push(
+        `Year span ${span} for ${student.name} (${id}): ${years.join(", ")}`
+      );
+    }
+  }
+
+  // 3. Duplicate participations per student
+  for (const [id, student] of Object.entries(graph.students)) {
+    const seen = new Set<string>();
+    for (const p of student.participations) {
+      const key = `${p.olympiad}-${p.year}`;
+      if (seen.has(key)) {
+        warnings.push(
+          `Duplicate participation: ${student.name} (${id}) in ${key}`
+        );
+      }
+      seen.add(key);
+    }
+  }
+
+  return { graph, warnings };
 }

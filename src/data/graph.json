@@ -723,13 +723,13 @@
     },
     "lara-timbo-araujo": {
       "id": "lara-timbo-araujo",
-      "name": "Lara Timbo Araujo",
+      "name": "Lara Timbó Araújo",
       "searchKey": "lara timbo araujo",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2011,
-          "medal": null
+          "medal": "gold"
         },
         {
           "olympiad": "ipho",
@@ -835,7 +835,7 @@
         {
           "olympiad": "oibf",
           "year": 2009,
-          "medal": null
+          "medal": "gold"
         },
         {
           "olympiad": "ipho",
@@ -1753,7 +1753,7 @@
         {
           "olympiad": "oibf",
           "year": 2018,
-          "medal": null
+          "medal": "gold"
         },
         {
           "olympiad": "eupho",
@@ -1948,7 +1948,7 @@
         {
           "olympiad": "oibf",
           "year": 2022,
-          "medal": null
+          "medal": "gold"
         },
         {
           "olympiad": "eupho",
@@ -1965,7 +1965,7 @@
         {
           "olympiad": "oibf",
           "year": 2022,
-          "medal": null
+          "medal": "silver"
         },
         {
           "olympiad": "eupho",
@@ -2006,7 +2006,7 @@
         {
           "olympiad": "oibf",
           "year": 2023,
-          "medal": null
+          "medal": "gold"
         },
         {
           "olympiad": "eupho",
@@ -2148,43 +2148,43 @@
         {
           "olympiad": "oibf",
           "year": 2001,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
     "livia-maria-frota-lima": {
       "id": "livia-maria-frota-lima",
-      "name": "Livia Maria Frota Lima",
+      "name": "Lívia María Frota Lima",
       "searchKey": "livia maria frota lima",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2001,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
-    "martha-priscila-torres": {
-      "id": "martha-priscila-torres",
-      "name": "Martha Priscila Torres",
-      "searchKey": "martha priscila torres",
+    "martha-priscilla-araujo-de-moraes-torres": {
+      "id": "martha-priscilla-araujo-de-moraes-torres",
+      "name": "Martha Priscilla Araujo de Moraes Torres",
+      "searchKey": "martha priscilla araujo de moraes torres",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2001,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
-    "paulo-ribeiro-almeida-neto": {
-      "id": "paulo-ribeiro-almeida-neto",
-      "name": "Paulo Ribeiro Almeida Neto",
-      "searchKey": "paulo ribeiro almeida neto",
+    "paulo-ribeiro-de-almeida-neto": {
+      "id": "paulo-ribeiro-de-almeida-neto",
+      "name": "Paulo Ribeiro de Almeida Neto",
+      "searchKey": "paulo ribeiro de almeida neto",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2001,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2214,7 +2214,7 @@
     },
     "julio-cesar-moura-de-oliveira": {
       "id": "julio-cesar-moura-de-oliveira",
-      "name": "Julio Cesar Moura de Oliveira",
+      "name": "Júlio César Moura de Oliveira",
       "searchKey": "julio cesar moura de oliveira",
       "participations": [
         {
@@ -2244,7 +2244,7 @@
         {
           "olympiad": "oibf",
           "year": 2003,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2256,7 +2256,7 @@
         {
           "olympiad": "oibf",
           "year": 2003,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2268,7 +2268,7 @@
         {
           "olympiad": "oibf",
           "year": 2003,
-          "medal": null
+          "medal": "honorable-mention"
         }
       ]
     },
@@ -2280,7 +2280,7 @@
         {
           "olympiad": "oibf",
           "year": 2004,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2292,7 +2292,7 @@
         {
           "olympiad": "oibf",
           "year": 2004,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2304,7 +2304,7 @@
         {
           "olympiad": "oibf",
           "year": 2004,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2316,7 +2316,7 @@
         {
           "olympiad": "oibf",
           "year": 2004,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2328,7 +2328,7 @@
         {
           "olympiad": "oibf",
           "year": 2005,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2340,43 +2340,43 @@
         {
           "olympiad": "oibf",
           "year": 2005,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
     "jorge-augusto-melegati-goncalves": {
       "id": "jorge-augusto-melegati-goncalves",
-      "name": "Jorge Augusto Melegati Goncalves",
+      "name": "Jorge Augusto Melegati Gonçalves",
       "searchKey": "jorge augusto melegati goncalves",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2005,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
     "romulo-costa-mendes": {
       "id": "romulo-costa-mendes",
-      "name": "Romulo Costa Mendes",
+      "name": "Rômulo Costa Mendes",
       "searchKey": "romulo costa mendes",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2005,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
-    "alexandre-hidecki-d-martori": {
-      "id": "alexandre-hidecki-d-martori",
-      "name": "Alexandre Hidecki D. Martori",
-      "searchKey": "alexandre hidecki d. martori",
+    "alexandre-hideki-deguchi-martani": {
+      "id": "alexandre-hideki-deguchi-martani",
+      "name": "Alexandre Hideki Deguchi Martani",
+      "searchKey": "alexandre hideki deguchi martani",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2006,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2388,19 +2388,19 @@
         {
           "olympiad": "oibf",
           "year": 2006,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
-    "raphael-rodrigues-mata": {
-      "id": "raphael-rodrigues-mata",
-      "name": "Raphael Rodrigues Mata",
-      "searchKey": "raphael rodrigues mata",
+    "rafael-rodrigues-mata": {
+      "id": "rafael-rodrigues-mata",
+      "name": "Rafael Rodrigues Mata",
+      "searchKey": "rafael rodrigues mata",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2006,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2412,7 +2412,7 @@
         {
           "olympiad": "oibf",
           "year": 2006,
-          "medal": null
+          "medal": "honorable-mention"
         }
       ]
     },
@@ -2424,31 +2424,31 @@
         {
           "olympiad": "oibf",
           "year": 2007,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
-    "gustavo-salinas-souza": {
-      "id": "gustavo-salinas-souza",
-      "name": "Gustavo Salinas Souza",
-      "searchKey": "gustavo salinas souza",
+    "gustavo-salinas-de-souza": {
+      "id": "gustavo-salinas-de-souza",
+      "name": "Gustavo Salinas de Souza",
+      "searchKey": "gustavo salinas de souza",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2007,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
     "danilo-jose-franzim-miranda": {
       "id": "danilo-jose-franzim-miranda",
-      "name": "Danilo Jose Franzim Miranda",
+      "name": "Danilo José Franzim Miranda",
       "searchKey": "danilo jose franzim miranda",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2007,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2460,7 +2460,7 @@
         {
           "olympiad": "oibf",
           "year": 2007,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2472,7 +2472,7 @@
         {
           "olympiad": "oibf",
           "year": 2008,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2484,31 +2484,31 @@
         {
           "olympiad": "oibf",
           "year": 2008,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
-    "leonardo-mendes-v-almeida": {
-      "id": "leonardo-mendes-v-almeida",
-      "name": "Leonardo Mendes V. Almeida",
-      "searchKey": "leonardo mendes v. almeida",
+    "leonardo-mendes-valerio-almeida": {
+      "id": "leonardo-mendes-valerio-almeida",
+      "name": "Leonardo Mendes Valério Almeida",
+      "searchKey": "leonardo mendes valerio almeida",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2008,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
     "deric-de-albuquerque-simao": {
       "id": "deric-de-albuquerque-simao",
-      "name": "Deric de Albuquerque Simao",
+      "name": "Deric de Albuquerque Simão",
       "searchKey": "deric de albuquerque simao",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2008,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2520,7 +2520,7 @@
         {
           "olympiad": "oibf",
           "year": 2009,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2532,19 +2532,19 @@
         {
           "olympiad": "oibf",
           "year": 2009,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
     "pedro-ricardo-pereira-tavora": {
       "id": "pedro-ricardo-pereira-tavora",
-      "name": "Pedro Ricardo Pereira Tavora",
+      "name": "Pedro Ricardo Pereira Távora",
       "searchKey": "pedro ricardo pereira tavora",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2009,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2604,7 +2604,7 @@
         {
           "olympiad": "oibf",
           "year": 2011,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2616,7 +2616,7 @@
         {
           "olympiad": "oibf",
           "year": 2011,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2628,19 +2628,19 @@
         {
           "olympiad": "oibf",
           "year": 2011,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
     "ilo-pereira-sa-emerenciano": {
       "id": "ilo-pereira-sa-emerenciano",
-      "name": "Ilo Pereira Sa Emerenciano",
+      "name": "Ilo Pereira Sá Emerenciano",
       "searchKey": "ilo pereira sa emerenciano",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2012,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2652,7 +2652,7 @@
         {
           "olympiad": "oibf",
           "year": 2012,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2664,7 +2664,7 @@
         {
           "olympiad": "oibf",
           "year": 2012,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2676,7 +2676,7 @@
         {
           "olympiad": "oibf",
           "year": 2012,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2688,19 +2688,19 @@
         {
           "olympiad": "oibf",
           "year": 2013,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
-    "luis-fernando-m-p-valle": {
-      "id": "luis-fernando-m-p-valle",
-      "name": "Luis Fernando M. P. Valle",
-      "searchKey": "luis fernando m. p. valle",
+    "luis-fernando-machado-poletti-valle": {
+      "id": "luis-fernando-machado-poletti-valle",
+      "name": "Luis Fernando Machado Poletti Valle",
+      "searchKey": "luis fernando machado poletti valle",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2013,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2712,7 +2712,7 @@
         {
           "olympiad": "oibf",
           "year": 2013,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2724,7 +2724,7 @@
         {
           "olympiad": "oibf",
           "year": 2013,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -2880,7 +2880,7 @@
         {
           "olympiad": "oibf",
           "year": 2017,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2892,7 +2892,7 @@
         {
           "olympiad": "oibf",
           "year": 2017,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2904,31 +2904,31 @@
         {
           "olympiad": "oibf",
           "year": 2017,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
     "aron-simoes-ferreira-maciel": {
       "id": "aron-simoes-ferreira-maciel",
-      "name": "Aron Simoes Ferreira Maciel",
+      "name": "Aron Simões Ferreira Maciel",
       "searchKey": "aron simoes ferreira maciel",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2017,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
     "otavio-dambrosio-arounian-ramos-bittencourt": {
       "id": "otavio-dambrosio-arounian-ramos-bittencourt",
-      "name": "Otavio D'Ambrosio Arounian Ramos Bittencourt",
+      "name": "Otávio D'Ambrosio Arounian Ramos Bittencourt",
       "searchKey": "otavio d'ambrosio arounian ramos bittencourt",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2018,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2940,19 +2940,19 @@
         {
           "olympiad": "oibf",
           "year": 2018,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
-    "fernando-silveira-fernandes-fernandes": {
-      "id": "fernando-silveira-fernandes-fernandes",
-      "name": "Fernando Silveira Fernandes Fernandes",
-      "searchKey": "fernando silveira fernandes fernandes",
+    "fernando-silveira-fernandes": {
+      "id": "fernando-silveira-fernandes",
+      "name": "Fernando Silveira Fernandes",
+      "searchKey": "fernando silveira fernandes",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2018,
-          "medal": null
+          "medal": "honorable-mention"
         }
       ]
     },
@@ -2982,7 +2982,7 @@
     },
     "maria-eduarda-goncalves-freitas": {
       "id": "maria-eduarda-goncalves-freitas",
-      "name": "Maria Eduarda Goncalves Freitas",
+      "name": "Maria Eduarda Gonçalves Freitas",
       "searchKey": "maria eduarda goncalves freitas",
       "participations": [
         {
@@ -3018,7 +3018,7 @@
     },
     "joao-victor-kerber-de-mello": {
       "id": "joao-victor-kerber-de-mello",
-      "name": "Joao Victor Kerber de Mello",
+      "name": "João Victor Kerber de Mello",
       "searchKey": "joao victor kerber de mello",
       "participations": [
         {
@@ -3036,7 +3036,7 @@
         {
           "olympiad": "oibf",
           "year": 2022,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -3048,7 +3048,7 @@
         {
           "olympiad": "oibf",
           "year": 2022,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -3060,7 +3060,7 @@
         {
           "olympiad": "oibf",
           "year": 2023,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -3072,19 +3072,19 @@
         {
           "olympiad": "oibf",
           "year": 2023,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
-    "augusto-carneiro-burlacchini": {
-      "id": "augusto-carneiro-burlacchini",
-      "name": "Augusto Carneiro Burlacchini",
-      "searchKey": "augusto carneiro burlacchini",
+    "augusto-carneiro-burlacchini-de-carvalho": {
+      "id": "augusto-carneiro-burlacchini-de-carvalho",
+      "name": "Augusto Carneiro Burlacchini de Carvalho",
+      "searchKey": "augusto carneiro burlacchini de carvalho",
       "participations": [
         {
           "olympiad": "oibf",
           "year": 2023,
-          "medal": null
+          "medal": "silver"
         }
       ]
     }
@@ -3236,31 +3236,31 @@
     },
     {
       "source": "leonardo-leite-pereira",
-      "target": "martha-priscila-torres",
+      "target": "martha-priscilla-araujo-de-moraes-torres",
       "olympiad": "oibf",
       "year": 2001
     },
     {
       "source": "leonardo-leite-pereira",
-      "target": "paulo-ribeiro-almeida-neto",
+      "target": "paulo-ribeiro-de-almeida-neto",
       "olympiad": "oibf",
       "year": 2001
     },
     {
       "source": "livia-maria-frota-lima",
-      "target": "martha-priscila-torres",
+      "target": "martha-priscilla-araujo-de-moraes-torres",
       "olympiad": "oibf",
       "year": 2001
     },
     {
       "source": "livia-maria-frota-lima",
-      "target": "paulo-ribeiro-almeida-neto",
+      "target": "paulo-ribeiro-de-almeida-neto",
       "olympiad": "oibf",
       "year": 2001
     },
     {
-      "source": "martha-priscila-torres",
-      "target": "paulo-ribeiro-almeida-neto",
+      "source": "martha-priscilla-araujo-de-moraes-torres",
+      "target": "paulo-ribeiro-de-almeida-neto",
       "olympiad": "oibf",
       "year": 2001
     },
@@ -3667,20 +3667,20 @@
       "year": 2006
     },
     {
-      "source": "alexandre-hidecki-d-martori",
+      "source": "alexandre-hideki-deguchi-martani",
       "target": "hugo-cangussu-marrochio",
       "olympiad": "oibf",
       "year": 2006
     },
     {
-      "source": "alexandre-hidecki-d-martori",
+      "source": "alexandre-hideki-deguchi-martani",
       "target": "leonardo-lucas-soares",
       "olympiad": "oibf",
       "year": 2006
     },
     {
-      "source": "alexandre-hidecki-d-martori",
-      "target": "raphael-rodrigues-mata",
+      "source": "alexandre-hideki-deguchi-martani",
+      "target": "rafael-rodrigues-mata",
       "olympiad": "oibf",
       "year": 2006
     },
@@ -3692,13 +3692,13 @@
     },
     {
       "source": "hugo-cangussu-marrochio",
-      "target": "raphael-rodrigues-mata",
+      "target": "rafael-rodrigues-mata",
       "olympiad": "oibf",
       "year": 2006
     },
     {
       "source": "leonardo-lucas-soares",
-      "target": "raphael-rodrigues-mata",
+      "target": "rafael-rodrigues-mata",
       "olympiad": "oibf",
       "year": 2006
     },
@@ -3776,7 +3776,7 @@
     },
     {
       "source": "anderson-unlin-tsai",
-      "target": "gustavo-salinas-souza",
+      "target": "gustavo-salinas-de-souza",
       "olympiad": "oibf",
       "year": 2007
     },
@@ -3788,13 +3788,13 @@
     },
     {
       "source": "bruno-arderucio-costa",
-      "target": "gustavo-salinas-souza",
+      "target": "gustavo-salinas-de-souza",
       "olympiad": "oibf",
       "year": 2007
     },
     {
       "source": "danilo-jose-franzim-miranda",
-      "target": "gustavo-salinas-souza",
+      "target": "gustavo-salinas-de-souza",
       "olympiad": "oibf",
       "year": 2007
     },
@@ -3866,7 +3866,7 @@
     },
     {
       "source": "deric-de-albuquerque-simao",
-      "target": "leonardo-mendes-v-almeida",
+      "target": "leonardo-mendes-valerio-almeida",
       "olympiad": "oibf",
       "year": 2008
     },
@@ -3878,7 +3878,7 @@
     },
     {
       "source": "george-gondim-ribeiro",
-      "target": "leonardo-mendes-v-almeida",
+      "target": "leonardo-mendes-valerio-almeida",
       "olympiad": "oibf",
       "year": 2008
     },
@@ -3889,7 +3889,7 @@
       "year": 2008
     },
     {
-      "source": "leonardo-mendes-v-almeida",
+      "source": "leonardo-mendes-valerio-almeida",
       "target": "mariana-quezado-costa-lima",
       "olympiad": "oibf",
       "year": 2008
@@ -4352,7 +4352,7 @@
     },
     {
       "source": "bruno-kenichi-saika",
-      "target": "luis-fernando-m-p-valle",
+      "target": "luis-fernando-machado-poletti-valle",
       "olympiad": "oibf",
       "year": 2013
     },
@@ -4364,13 +4364,13 @@
     },
     {
       "source": "caio-tavares-veras",
-      "target": "luis-fernando-m-p-valle",
+      "target": "luis-fernando-machado-poletti-valle",
       "olympiad": "oibf",
       "year": 2013
     },
     {
       "source": "isak-czeresnia-etinger",
-      "target": "luis-fernando-m-p-valle",
+      "target": "luis-fernando-machado-poletti-valle",
       "olympiad": "oibf",
       "year": 2013
     },
@@ -4940,7 +4940,7 @@
     },
     {
       "source": "artur-soares-rodrigues",
-      "target": "fernando-silveira-fernandes-fernandes",
+      "target": "fernando-silveira-fernandes",
       "olympiad": "oibf",
       "year": 2018
     },
@@ -4957,13 +4957,13 @@
       "year": 2018
     },
     {
-      "source": "fernando-silveira-fernandes-fernandes",
+      "source": "fernando-silveira-fernandes",
       "target": "gabriel-capelo-domingues",
       "olympiad": "oibf",
       "year": 2018
     },
     {
-      "source": "fernando-silveira-fernandes-fernandes",
+      "source": "fernando-silveira-fernandes",
       "target": "otavio-dambrosio-arounian-ramos-bittencourt",
       "olympiad": "oibf",
       "year": 2018
@@ -5702,7 +5702,7 @@
     },
     {
       "source": "alexandre-andrade-de-almeida",
-      "target": "augusto-carneiro-burlacchini",
+      "target": "augusto-carneiro-burlacchini-de-carvalho",
       "olympiad": "oibf",
       "year": 2023
     },
@@ -5714,7 +5714,7 @@
     },
     {
       "source": "arthur-jiun-wei-hwang",
-      "target": "augusto-carneiro-burlacchini",
+      "target": "augusto-carneiro-burlacchini-de-carvalho",
       "olympiad": "oibf",
       "year": 2023
     },
@@ -5725,7 +5725,7 @@
       "year": 2023
     },
     {
-      "source": "augusto-carneiro-burlacchini",
+      "source": "augusto-carneiro-burlacchini-de-carvalho",
       "target": "rafael-sena-lima-sousa",
       "olympiad": "oibf",
       "year": 2023
@@ -6068,7 +6068,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-03-02T05:48:27.968Z",
+    "generatedAt": "2026-03-03T05:11:15.024Z",
     "studentCount": 244,
     "edgeCount": 496
   }
