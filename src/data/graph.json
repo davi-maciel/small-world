@@ -2196,7 +2196,7 @@
         {
           "olympiad": "oibf",
           "year": 2002,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -2208,7 +2208,7 @@
         {
           "olympiad": "oibf",
           "year": 2002,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2220,7 +2220,7 @@
         {
           "olympiad": "oibf",
           "year": 2002,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -2728,6 +2728,114 @@
         }
       ]
     },
+    "pedro-alves-de-souza-neto": {
+      "id": "pedro-alves-de-souza-neto",
+      "name": "Pedro Alves de Souza Neto",
+      "searchKey": "pedro alves de souza neto",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2014,
+          "medal": "bronze"
+        }
+      ]
+    },
+    "matheus-carioca-sampaio": {
+      "id": "matheus-carioca-sampaio",
+      "name": "Matheus Carioca Sampaio",
+      "searchKey": "matheus carioca sampaio",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2014,
+          "medal": "bronze"
+        }
+      ]
+    },
+    "joao-lucas-miranda-francelino": {
+      "id": "joao-lucas-miranda-francelino",
+      "name": "João Lucas Miranda Francelino",
+      "searchKey": "joao lucas miranda francelino",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2014,
+          "medal": "bronze"
+        }
+      ]
+    },
+    "matheus-dias-maciel": {
+      "id": "matheus-dias-maciel",
+      "name": "Matheus Dias Maciel",
+      "searchKey": "matheus dias maciel",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2014,
+          "medal": "bronze"
+        }
+      ]
+    },
+    "mateus-de-castro-silva": {
+      "id": "mateus-de-castro-silva",
+      "name": "Mateus de Castro Silva",
+      "searchKey": "mateus de castro silva",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2015,
+          "medal": "gold"
+        }
+      ]
+    },
+    "lenon-falcao-de-araujo": {
+      "id": "lenon-falcao-de-araujo",
+      "name": "Lenon Falcão de Araújo",
+      "searchKey": "lenon falcao de araujo",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2015,
+          "medal": "silver"
+        }
+      ]
+    },
+    "alisson-barreto-do-amaral": {
+      "id": "alisson-barreto-do-amaral",
+      "name": "Alisson Barreto do Amaral",
+      "searchKey": "alisson barreto do amaral",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2015,
+          "medal": "bronze"
+        }
+      ]
+    },
+    "leonardo-henrique-martins": {
+      "id": "leonardo-henrique-martins",
+      "name": "Leonardo Henrique Martins",
+      "searchKey": "leonardo henrique martins",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2015,
+          "medal": "bronze"
+        }
+      ]
+    },
+    "vinicius-roberto-gomes-queiroz": {
+      "id": "vinicius-roberto-gomes-queiroz",
+      "name": "Vinícius Roberto Gomes Queiroz",
+      "searchKey": "vinicius roberto gomes queiroz",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2016,
+          "medal": "gold"
+        }
+      ]
+    },
     "marina-maciel-ansanelli": {
       "id": "marina-maciel-ansanelli",
       "name": "Marina Maciel Ansanelli",
@@ -2737,6 +2845,18 @@
           "olympiad": "oibf",
           "year": 2016,
           "medal": "gold"
+        }
+      ]
+    },
+    "paulo-ricardo-sousa-fonteles-de-castro": {
+      "id": "paulo-ricardo-sousa-fonteles-de-castro",
+      "name": "Paulo Ricardo Sousa Fonteles de Castro",
+      "searchKey": "paulo ricardo sousa fonteles de castro",
+      "participations": [
+        {
+          "olympiad": "oibf",
+          "year": 2016,
+          "medal": "silver"
         }
       ]
     },
@@ -4315,6 +4435,42 @@
       "year": 2014
     },
     {
+      "source": "joao-lucas-miranda-francelino",
+      "target": "matheus-carioca-sampaio",
+      "olympiad": "oibf",
+      "year": 2014
+    },
+    {
+      "source": "joao-lucas-miranda-francelino",
+      "target": "matheus-dias-maciel",
+      "olympiad": "oibf",
+      "year": 2014
+    },
+    {
+      "source": "joao-lucas-miranda-francelino",
+      "target": "pedro-alves-de-souza-neto",
+      "olympiad": "oibf",
+      "year": 2014
+    },
+    {
+      "source": "matheus-carioca-sampaio",
+      "target": "matheus-dias-maciel",
+      "olympiad": "oibf",
+      "year": 2014
+    },
+    {
+      "source": "matheus-carioca-sampaio",
+      "target": "pedro-alves-de-souza-neto",
+      "olympiad": "oibf",
+      "year": 2014
+    },
+    {
+      "source": "matheus-dias-maciel",
+      "target": "pedro-alves-de-souza-neto",
+      "olympiad": "oibf",
+      "year": 2014
+    },
+    {
       "source": "delson-barros-oliveira-filho",
       "target": "felipe-de-castro-silva",
       "olympiad": "ipho",
@@ -4372,6 +4528,42 @@
       "source": "mateus-arraes-feitosa-borges",
       "target": "tafnes-silva-barbosa",
       "olympiad": "ipho",
+      "year": 2015
+    },
+    {
+      "source": "alisson-barreto-do-amaral",
+      "target": "lenon-falcao-de-araujo",
+      "olympiad": "oibf",
+      "year": 2015
+    },
+    {
+      "source": "alisson-barreto-do-amaral",
+      "target": "leonardo-henrique-martins",
+      "olympiad": "oibf",
+      "year": 2015
+    },
+    {
+      "source": "alisson-barreto-do-amaral",
+      "target": "mateus-de-castro-silva",
+      "olympiad": "oibf",
+      "year": 2015
+    },
+    {
+      "source": "lenon-falcao-de-araujo",
+      "target": "leonardo-henrique-martins",
+      "olympiad": "oibf",
+      "year": 2015
+    },
+    {
+      "source": "lenon-falcao-de-araujo",
+      "target": "mateus-de-castro-silva",
+      "olympiad": "oibf",
+      "year": 2015
+    },
+    {
+      "source": "leonardo-henrique-martins",
+      "target": "mateus-de-castro-silva",
+      "olympiad": "oibf",
       "year": 2015
     },
     {
@@ -4437,6 +4629,36 @@
     {
       "source": "felipe-mourad-pereira",
       "target": "marina-maciel-ansanelli",
+      "olympiad": "oibf",
+      "year": 2016
+    },
+    {
+      "source": "felipe-mourad-pereira",
+      "target": "paulo-ricardo-sousa-fonteles-de-castro",
+      "olympiad": "oibf",
+      "year": 2016
+    },
+    {
+      "source": "felipe-mourad-pereira",
+      "target": "vinicius-roberto-gomes-queiroz",
+      "olympiad": "oibf",
+      "year": 2016
+    },
+    {
+      "source": "marina-maciel-ansanelli",
+      "target": "paulo-ricardo-sousa-fonteles-de-castro",
+      "olympiad": "oibf",
+      "year": 2016
+    },
+    {
+      "source": "marina-maciel-ansanelli",
+      "target": "vinicius-roberto-gomes-queiroz",
+      "olympiad": "oibf",
+      "year": 2016
+    },
+    {
+      "source": "paulo-ricardo-sousa-fonteles-de-castro",
+      "target": "vinicius-roberto-gomes-queiroz",
       "olympiad": "oibf",
       "year": 2016
     },
@@ -5846,8 +6068,8 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-03-02T02:27:59.618Z",
-    "studentCount": 234,
-    "edgeCount": 479
+    "generatedAt": "2026-03-02T05:48:27.968Z",
+    "studentCount": 244,
+    "edgeCount": 496
   }
 }
