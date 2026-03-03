@@ -29,13 +29,19 @@ const MEDAL_RANK: Record<string, number> = {
 type SortColumn = 'name' | 'olympiad' | 'year' | 'medal';
 type SortDirection = 'asc' | 'desc';
 
+interface SortCriterion {
+  column: SortColumn;
+  direction: SortDirection;
+}
+
 interface ParticipationTableProps {
   students: Student[];
 }
 
 export function ParticipationTable({ students }: ParticipationTableProps) {
-  const [sortColumn, setSortColumn] = useState<SortColumn>('name');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
+  const [sortStack, setSortStack] = useState<SortCriterion[]>([
+    { column: 'name', direction: 'asc' },
+  ]);
   const [filterOlympiad, setFilterOlympiad] = useState<string>('all');
   const [filterYear, setFilterYear] = useState<string>('all');
 
@@ -67,46 +73,65 @@ export function ParticipationTable({ students }: ParticipationTableProps) {
     });
   }, [rows, filterOlympiad, filterYear]);
 
-  const sortedRows = useMemo(() => {
-    const sorted = [...filteredRows];
-    const dir = sortDirection === 'asc' ? 1 : -1;
-
-    sorted.sort((a, b) => {
-      switch (sortColumn) {
-        case 'name':
-          return dir * a.name.localeCompare(b.name);
-        case 'olympiad': {
-          const configA = OLYMPIADS[a.olympiad as OlympiadId];
-          const configB = OLYMPIADS[b.olympiad as OlympiadId];
-          return dir * (configA?.name ?? a.olympiad).localeCompare(configB?.name ?? b.olympiad);
-        }
-        case 'year':
-          return dir * (a.year - b.year);
-        case 'medal': {
-          const rankA = a.medal ? (MEDAL_RANK[a.medal] ?? 4) : 4;
-          const rankB = b.medal ? (MEDAL_RANK[b.medal] ?? 4) : 4;
-          return dir * (rankA - rankB);
-        }
-        default:
-          return 0;
+  const compareByColumn = (a: ParticipationRow, b: ParticipationRow, column: SortColumn): number => {
+    switch (column) {
+      case 'name':
+        return a.name.localeCompare(b.name);
+      case 'olympiad': {
+        const configA = OLYMPIADS[a.olympiad as OlympiadId];
+        const configB = OLYMPIADS[b.olympiad as OlympiadId];
+        return (configA?.name ?? a.olympiad).localeCompare(configB?.name ?? b.olympiad);
       }
-    });
-
-    return sorted;
-  }, [filteredRows, sortColumn, sortDirection]);
-
-  const handleSort = (column: SortColumn) => {
-    if (sortColumn === column) {
-      setSortDirection((d) => (d === 'asc' ? 'desc' : 'asc'));
-    } else {
-      setSortColumn(column);
-      setSortDirection('asc');
+      case 'year':
+        return a.year - b.year;
+      case 'medal': {
+        const rankA = a.medal ? (MEDAL_RANK[a.medal] ?? 4) : 4;
+        const rankB = b.medal ? (MEDAL_RANK[b.medal] ?? 4) : 4;
+        return rankA - rankB;
+      }
+      default:
+        return 0;
     }
   };
 
+  const sortedRows = useMemo(() => {
+    const sorted = [...filteredRows];
+
+    sorted.sort((a, b) => {
+      for (const { column, direction } of sortStack) {
+        const dir = direction === 'asc' ? 1 : -1;
+        const cmp = compareByColumn(a, b, column);
+        if (cmp !== 0) return dir * cmp;
+      }
+      return 0;
+    });
+
+    return sorted;
+  }, [filteredRows, sortStack]);
+
+  const handleSort = (column: SortColumn) => {
+    setSortStack((prev) => {
+      const existing = prev.find((s) => s.column === column);
+      if (existing && prev[0].column === column) {
+        // Already primary: toggle direction
+        return prev.map((s) =>
+          s.column === column
+            ? { ...s, direction: s.direction === 'asc' ? 'desc' : 'asc' }
+            : s
+        );
+      }
+      // Move/add to front, keep the rest as tiebreakers
+      const rest = prev.filter((s) => s.column !== column);
+      return [{ column, direction: 'asc' }, ...rest];
+    });
+  };
+
   const SortIndicator = ({ column }: { column: SortColumn }) => {
-    if (sortColumn !== column) return <span className="text-gray-300 ml-1">↕</span>;
-    return <span className="ml-1">{sortDirection === 'asc' ? '↑' : '↓'}</span>;
+    const index = sortStack.findIndex((s) => s.column === column);
+    if (index === -1) return <span className="text-gray-300 ml-1">↕</span>;
+    const arrow = sortStack[index].direction === 'asc' ? '↑' : '↓';
+    if (index === 0) return <span className="ml-1">{arrow}</span>;
+    return <span className="text-gray-400 ml-1">{arrow}</span>;
   };
 
   const headerClass = 'px-2 py-2 text-left text-sm font-medium text-gray-700 cursor-pointer select-none hover:bg-gray-50 sm:px-4';
