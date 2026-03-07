@@ -1,6 +1,6 @@
 'use client';
 
-import { useReducer, useMemo, useCallback, useState } from 'react';
+import { useReducer, useMemo, useCallback, useState, useRef } from 'react';
 import type Fuse from 'fuse.js';
 import type { Student, Edge, AdjacencyList } from '@/types/graph';
 import { getNeighborhood } from '@/lib/graph';
@@ -126,6 +126,7 @@ export function GraphExplorer({
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const [showLabels, setShowLabels] = useState(true);
+  const graphContainerRef = useRef<HTMLDivElement>(null);
 
   const selectedStudent = state.rootId ? studentsMap[state.rootId] ?? null : null;
 
@@ -136,6 +137,15 @@ export function GraphExplorer({
   const handleNodeClick = useCallback((nodeId: string) => {
     dispatch({ type: 'TOGGLE', studentId: nodeId });
   }, []);
+
+  const handleDownloadPNG = useCallback(() => {
+    const canvas = graphContainerRef.current?.querySelector('canvas');
+    if (!canvas) return;
+    const link = document.createElement('a');
+    link.download = `grafo-${state.rootId ?? 'grafo'}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }, [state.rootId]);
 
   const { nodes, links } = useMemo((): { nodes: GraphNode[]; links: GraphLink[] } => {
     if (!state.rootId) return { nodes: [], links: [] };
@@ -199,24 +209,35 @@ export function GraphExplorer({
             placeholder="Buscar estudante..."
           />
         </div>
-        <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer select-none">
-          <span>Nomes</span>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={showLabels}
-            onClick={() => setShowLabels((v) => !v)}
-            className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors ${showLabels ? 'bg-gray-800' : 'bg-gray-300'}`}
-          >
-            <span
-              className={`inline-block h-3.5 w-3.5 rounded-full bg-white transition-transform ${showLabels ? 'translate-x-[18px]' : 'translate-x-[3px]'}`}
-            />
-          </button>
-        </label>
+        {state.rootId && (
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={handleDownloadPNG}
+              className="text-sm text-gray-600 hover:text-gray-900 cursor-pointer select-none"
+            >
+              Baixar PNG
+            </button>
+            <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer select-none">
+              <span>Nomes</span>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={showLabels}
+                onClick={() => setShowLabels((v) => !v)}
+                className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors ${showLabels ? 'bg-gray-800' : 'bg-gray-300'}`}
+              >
+                <span
+                  className={`inline-block h-3.5 w-3.5 rounded-full bg-white transition-transform ${showLabels ? 'translate-x-[18px]' : 'translate-x-[3px]'}`}
+                />
+              </button>
+            </label>
+          </div>
+        )}
       </div>
 
       {state.rootId ? (
-        <>
+        <div ref={graphContainerRef}>
           <div className="sm:hidden">
             <GraphLegend />
           </div>
@@ -232,7 +253,7 @@ export function GraphExplorer({
           <div className="hidden sm:block">
             <GraphLegend />
           </div>
-        </>
+        </div>
       ) : (
         <div className="flex items-center justify-center h-[350px] border border-gray-200 rounded-lg text-gray-400 text-sm sm:h-[500px]">
           Selecione um estudante para explorar o grafo.
