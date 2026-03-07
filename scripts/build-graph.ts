@@ -14,14 +14,15 @@ const iphoMain = loadJSON<ScrapedEntry[]>("data/raw/ipho-unofficial.json");
 const iphoSupp = loadJSON<ScrapedEntry[]>("data/raw/ipho-supplementary.json");
 const eupho = loadJSON<ScrapedEntry[]>("data/raw/eupho-pdfs.json");
 const oibf = loadJSON<ScrapedEntry[]>("data/raw/oibf.json");
+const nbpho = loadJSON<ScrapedEntry[]>("data/raw/nbpho.json");
 
 console.log(
-  `Loaded: ${iphoMain.length} ipho-main, ${iphoSupp.length} ipho-supp, ${eupho.length} eupho, ${oibf.length} oibf`
+  `Loaded: ${iphoMain.length} ipho-main, ${iphoSupp.length} ipho-supp, ${eupho.length} eupho, ${oibf.length} oibf, ${nbpho.length} nbpho`
 );
 
 // --- Merge all entries ---
 
-const allEntries: ScrapedEntry[] = [...iphoMain, ...iphoSupp, ...eupho, ...oibf];
+const allEntries: ScrapedEntry[] = [...iphoMain, ...iphoSupp, ...eupho, ...oibf, ...nbpho];
 
 // --- Deduplicate and build student records ---
 

@@ -1,4 +1,4 @@
-export const OLYMPIAD_IDS = ['ipho', 'eupho', 'oibf'] as const;
+export const OLYMPIAD_IDS = ['ipho', 'eupho', 'oibf', 'nbpho'] as const;
 export type OlympiadId = (typeof OLYMPIAD_IDS)[number];
 
 export interface OlympiadConfig {
@@ -26,5 +26,11 @@ export const OLYMPIADS: Record<OlympiadId, OlympiadConfig> = {
     name: 'OIbF',
     fullName: 'Olimpíada Ibero-americana de Física',
     color: '#DC2626',
+  },
+  nbpho: {
+    id: 'nbpho',
+    name: 'NBPhO',
+    fullName: 'Olimpíada Nórdico-Báltica de Física',
+    color: '#16A34A',
   },
 };

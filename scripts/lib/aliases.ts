@@ -37,6 +37,9 @@ export const SLUG_ALIASES: Record<string, string> = {
 
   // EuPhO 2017: "Diogo Netto" is "Diogo Correia Netto" from IPhO
   "diogo-netto": "diogo-correia-netto",
+
+  // NBPhO 2020: "Maria Freitas" in PDF is "Maria Eduarda Gonçalves Freitas" from OIbF
+  // (not needed if raw data uses full name, but kept for reference)
 };
 
 // Preferred display names for canonical slugs
@@ -61,4 +64,9 @@ export const PREFERRED_NAMES: Record<string, string> = {
   "joao-gabriel-pepato-de-oliveira": "João Gabriel Pepato de Oliveira",
   "gabriel-hemetrio-de-menezes": "Gabriel Hemétrio de Menezes",
   "luiz-claudio-germano-da-costa": "Luiz Cláudio Germano Da Costa",
+  // NBPhO: diacritics from SBF / known Portuguese names
+  "antonio-italo-lima-lopes": "Antônio Ítalo Lima Lopes",
+  "andre-senas-bonfadini-araujo": "André Senas Bonfadini Araujo",
+  "jose-ulisses-fonseca-mendonca": "José Ulisses Fonseca Mendonça",
+  "sergio-carneiro-bittencourt": "Sérgio Carneiro Bittencourt",
 };

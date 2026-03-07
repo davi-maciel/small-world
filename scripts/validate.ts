@@ -5,7 +5,7 @@ const MedalSchema = z
   .nullable();
 
 const ParticipationSchema = z.object({
-  olympiad: z.enum(["ipho", "eupho", "oibf"]),
+  olympiad: z.enum(["ipho", "eupho", "oibf", "nbpho"]),
   year: z.number().int().min(1967).max(new Date().getFullYear()),
   medal: MedalSchema,
 });
@@ -20,7 +20,7 @@ const StudentSchema = z.object({
 const EdgeSchema = z.object({
   source: z.string().min(1),
   target: z.string().min(1),
-  olympiad: z.enum(["ipho", "eupho", "oibf"]),
+  olympiad: z.enum(["ipho", "eupho", "oibf", "nbpho"]),
   year: z.number().int(),
 });
 
@@ -40,6 +40,7 @@ const MAX_TEAM_SIZE: Record<string, number> = {
   oibf: 4,
   ipho: 5,
   eupho: 5,
+  nbpho: 5,
 };
 
 export function validateGraph(data: unknown): { graph: Graph; warnings: string[] } {

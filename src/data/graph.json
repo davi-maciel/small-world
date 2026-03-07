@@ -230,6 +230,11 @@
       "searchKey": "lucas takayasu",
       "participations": [
         {
+          "olympiad": "nbpho",
+          "year": 2020,
+          "medal": "bronze"
+        },
+        {
           "olympiad": "oibf",
           "year": 2020,
           "medal": "gold"
@@ -279,13 +284,18 @@
     },
     "antonio-italo-lima-lopes": {
       "id": "antonio-italo-lima-lopes",
-      "name": "Antonio Italo Lima Lopes",
+      "name": "Antônio Ítalo Lima Lopes",
       "searchKey": "antonio italo lima lopes",
       "participations": [
         {
           "olympiad": "ipho",
           "year": 2019,
           "medal": "silver"
+        },
+        {
+          "olympiad": "nbpho",
+          "year": 2020,
+          "medal": "gold"
         }
       ]
     },
@@ -2974,6 +2984,11 @@
       "searchKey": "felipe farias ribeiro filho",
       "participations": [
         {
+          "olympiad": "nbpho",
+          "year": 2020,
+          "medal": "silver"
+        },
+        {
           "olympiad": "oibf",
           "year": 2020,
           "medal": "gold"
@@ -2986,6 +3001,11 @@
       "searchKey": "maria eduarda goncalves freitas",
       "participations": [
         {
+          "olympiad": "nbpho",
+          "year": 2020,
+          "medal": "bronze"
+        },
+        {
           "olympiad": "oibf",
           "year": 2020,
           "medal": "gold"
@@ -2997,6 +3017,11 @@
       "name": "Lucas Shoji",
       "searchKey": "lucas shoji",
       "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2020,
+          "medal": "silver"
+        },
         {
           "olympiad": "oibf",
           "year": 2020,
@@ -3085,6 +3110,126 @@
           "olympiad": "oibf",
           "year": 2023,
           "medal": "silver"
+        }
+      ]
+    },
+    "tobias-gabriel-utz": {
+      "id": "tobias-gabriel-utz",
+      "name": "Tobias Gabriel Utz",
+      "searchKey": "tobias gabriel utz",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2025,
+          "medal": "gold"
+        }
+      ]
+    },
+    "andre-senas-bonfadini-araujo": {
+      "id": "andre-senas-bonfadini-araujo",
+      "name": "André Senas Bonfadini Araujo",
+      "searchKey": "andre senas bonfadini araujo",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2025,
+          "medal": "silver"
+        }
+      ]
+    },
+    "lucas-cavalcante-menezes": {
+      "id": "lucas-cavalcante-menezes",
+      "name": "Lucas Cavalcante Menezes",
+      "searchKey": "lucas cavalcante menezes",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2025,
+          "medal": "silver"
+        }
+      ]
+    },
+    "felipe-maia-silva": {
+      "id": "felipe-maia-silva",
+      "name": "Felipe Maia Silva",
+      "searchKey": "felipe maia silva",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2025,
+          "medal": "bronze"
+        }
+      ]
+    },
+    "mateus-usuda-sussia": {
+      "id": "mateus-usuda-sussia",
+      "name": "Mateus Usuda Sussia",
+      "searchKey": "mateus usuda sussia",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2025,
+          "medal": "bronze"
+        }
+      ]
+    },
+    "matheus-leonardo-faco": {
+      "id": "matheus-leonardo-faco",
+      "name": "Matheus Leonardo Faco",
+      "searchKey": "matheus leonardo faco",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2026,
+          "medal": null
+        }
+      ]
+    },
+    "jose-ulisses-fonseca-mendonca": {
+      "id": "jose-ulisses-fonseca-mendonca",
+      "name": "José Ulisses Fonseca Mendonça",
+      "searchKey": "jose ulisses fonseca mendonca",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2026,
+          "medal": null
+        }
+      ]
+    },
+    "paulo-henrique-pinheiro-tavares": {
+      "id": "paulo-henrique-pinheiro-tavares",
+      "name": "Paulo Henrique Pinheiro Tavares",
+      "searchKey": "paulo henrique pinheiro tavares",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2026,
+          "medal": null
+        }
+      ]
+    },
+    "sergio-carneiro-bittencourt": {
+      "id": "sergio-carneiro-bittencourt",
+      "name": "Sérgio Carneiro Bittencourt",
+      "searchKey": "sergio carneiro bittencourt",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2026,
+          "medal": null
+        }
+      ]
+    },
+    "benny-pereira-freitas": {
+      "id": "benny-pereira-freitas",
+      "name": "Benny Pereira Freitas",
+      "searchKey": "benny pereira freitas",
+      "participations": [
+        {
+          "olympiad": "nbpho",
+          "year": 2026,
+          "medal": null
         }
       ]
     }
@@ -5227,6 +5372,66 @@
       "year": 2020
     },
     {
+      "source": "antonio-italo-lima-lopes",
+      "target": "felipe-farias-ribeiro-filho",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "antonio-italo-lima-lopes",
+      "target": "lucas-shoji",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "antonio-italo-lima-lopes",
+      "target": "lucas-takayasu",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "antonio-italo-lima-lopes",
+      "target": "maria-eduarda-goncalves-freitas",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "felipe-farias-ribeiro-filho",
+      "target": "lucas-shoji",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "felipe-farias-ribeiro-filho",
+      "target": "lucas-takayasu",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "felipe-farias-ribeiro-filho",
+      "target": "maria-eduarda-goncalves-freitas",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "lucas-shoji",
+      "target": "lucas-takayasu",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "lucas-shoji",
+      "target": "maria-eduarda-goncalves-freitas",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
+      "source": "lucas-takayasu",
+      "target": "maria-eduarda-goncalves-freitas",
+      "olympiad": "nbpho",
+      "year": 2020
+    },
+    {
       "source": "felipe-farias-ribeiro-filho",
       "target": "lucas-shoji",
       "olympiad": "oibf",
@@ -5911,6 +6116,66 @@
       "year": 2025
     },
     {
+      "source": "andre-senas-bonfadini-araujo",
+      "target": "felipe-maia-silva",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "andre-senas-bonfadini-araujo",
+      "target": "lucas-cavalcante-menezes",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "andre-senas-bonfadini-araujo",
+      "target": "mateus-usuda-sussia",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "andre-senas-bonfadini-araujo",
+      "target": "tobias-gabriel-utz",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "felipe-maia-silva",
+      "target": "lucas-cavalcante-menezes",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "felipe-maia-silva",
+      "target": "mateus-usuda-sussia",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "felipe-maia-silva",
+      "target": "tobias-gabriel-utz",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "lucas-cavalcante-menezes",
+      "target": "mateus-usuda-sussia",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "lucas-cavalcante-menezes",
+      "target": "tobias-gabriel-utz",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
+      "source": "mateus-usuda-sussia",
+      "target": "tobias-gabriel-utz",
+      "olympiad": "nbpho",
+      "year": 2025
+    },
+    {
       "source": "caio-yamashita-risseto",
       "target": "eduardo-yuji-shashike",
       "olympiad": "eupho",
@@ -6031,6 +6296,66 @@
       "year": 2026
     },
     {
+      "source": "benny-pereira-freitas",
+      "target": "jose-ulisses-fonseca-mendonca",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "benny-pereira-freitas",
+      "target": "matheus-leonardo-faco",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "benny-pereira-freitas",
+      "target": "paulo-henrique-pinheiro-tavares",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "benny-pereira-freitas",
+      "target": "sergio-carneiro-bittencourt",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "jose-ulisses-fonseca-mendonca",
+      "target": "matheus-leonardo-faco",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "jose-ulisses-fonseca-mendonca",
+      "target": "paulo-henrique-pinheiro-tavares",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "jose-ulisses-fonseca-mendonca",
+      "target": "sergio-carneiro-bittencourt",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "matheus-leonardo-faco",
+      "target": "paulo-henrique-pinheiro-tavares",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "matheus-leonardo-faco",
+      "target": "sergio-carneiro-bittencourt",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
+      "source": "paulo-henrique-pinheiro-tavares",
+      "target": "sergio-carneiro-bittencourt",
+      "olympiad": "nbpho",
+      "year": 2026
+    },
+    {
       "source": "alan-pinheiro-de-oliveira",
       "target": "joao-vitor-garcia-geiss",
       "olympiad": "oibf",
@@ -6068,8 +6393,8 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-03-03T05:11:15.024Z",
-    "studentCount": 244,
-    "edgeCount": 496
+    "generatedAt": "2026-03-07T20:40:59.129Z",
+    "studentCount": 254,
+    "edgeCount": 526
   }
 }
