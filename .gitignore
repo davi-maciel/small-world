@@ -4,6 +4,6 @@ out/
 next-env.d.ts
 *.log
 .claude/
-SCRAPING_PLAN.md
-SPEC.md
+*.md
+!README.md
 .vercel

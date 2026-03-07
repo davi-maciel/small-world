@@ -13,8 +13,6 @@ const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), {
 export interface GraphNode {
   id: string;
   name: string;
-  isRoot: boolean;
-  isExpanded: boolean;
 }
 
 export interface GraphLink {
@@ -28,13 +26,36 @@ export interface GraphLink {
 interface GraphCanvasProps {
   nodes: GraphNode[];
   links: GraphLink[];
+  rootId: string | null;
+  expandedNodeIds: Set<string>;
+  fitVersion: number;
   onNodeClick: (nodeId: string) => void;
   showLabels: boolean;
 }
 
-export function GraphCanvas({ nodes, links, onNodeClick, showLabels }: GraphCanvasProps) {
+interface PositionedGraphNode extends GraphNode {
+  x?: number;
+  y?: number;
+  vx?: number;
+  vy?: number;
+}
+
+export function GraphCanvas({
+  nodes,
+  links,
+  rootId,
+  expandedNodeIds,
+  fitVersion,
+  onNodeClick,
+  showLabels,
+}: GraphCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const graphRef = useRef<any>(null);
+  const nodeCacheRef = useRef(new Map<string, PositionedGraphNode>());
+  const nodePositionsRef = useRef(new Map<string, { x: number; y: number }>());
+  const cachedRootIdRef = useRef<string | null>(null);
+  const lastQueuedFitVersionRef = useRef(0);
+  const pendingAutoFitRef = useRef(false);
   const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
 
   useEffect(() => {
@@ -56,11 +77,19 @@ export function GraphCanvas({ nodes, links, onNodeClick, showLabels }: GraphCanv
       graphRef.current.d3Force('charge').strength(-200);
       graphRef.current.d3Force('link').distance(80);
     }
-  }, [nodes, links]);
+  }, [dimensions, nodes.length, links.length]);
+
+  useEffect(() => {
+    if (!dimensions || fitVersion <= lastQueuedFitVersionRef.current) return;
+
+    lastQueuedFitVersionRef.current = fitVersion;
+    pendingAutoFitRef.current = true;
+  }, [dimensions, fitVersion]);
 
   const handleEngineStop = useCallback(() => {
-    if (graphRef.current) {
-      graphRef.current.zoomToFit(400, 80);
+    if (graphRef.current && pendingAutoFitRef.current) {
+      graphRef.current.zoomToFit(250, 80);
+      pendingAutoFitRef.current = false;
     }
   }, []);
 
@@ -71,14 +100,21 @@ export function GraphCanvas({ nodes, links, onNodeClick, showLabels }: GraphCanv
     [onNodeClick]
   );
 
+  const handleNodeDragEnd = useCallback(() => {
+    pendingAutoFitRef.current = true;
+  }, []);
+
   const nodeCanvasObject = useCallback(
     (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+      // Track positions for placing new nodes near neighbors
+      nodePositionsRef.current.set(node.id, { x: node.x, y: node.y });
+
       const label = node.name;
       const fontSize = 12 / globalScale;
       ctx.font = `${fontSize}px sans-serif`;
 
-      const isRoot = node.isRoot;
-      const isExpanded = node.isExpanded;
+      const isRoot = node.id === rootId;
+      const isExpanded = expandedNodeIds.has(node.id);
 
       const radius = isRoot ? 8 / globalScale : 5 / globalScale;
 
@@ -107,7 +143,7 @@ export function GraphCanvas({ nodes, links, onNodeClick, showLabels }: GraphCanv
         ctx.fillText(label, node.x, node.y + radius + 2 / globalScale);
       }
     },
-    [showLabels]
+    [expandedNodeIds, rootId, showLabels]
   );
 
   const linkColor = useCallback((link: any) => {
@@ -119,7 +155,94 @@ export function GraphCanvas({ nodes, links, onNodeClick, showLabels }: GraphCanv
     return link.curvature;
   }, []);
 
-  const graphData = useMemo(() => ({ nodes, links }), [nodes, links]);
+  const nodePointerAreaPaint = useCallback(
+    (node: any, color: string, ctx: CanvasRenderingContext2D, globalScale: number) => {
+      const radius = node.id === rootId ? 8 / globalScale : 5 / globalScale;
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, radius + 4 / globalScale, 0, 2 * Math.PI);
+      ctx.fillStyle = color;
+      ctx.fill();
+    },
+    [rootId]
+  );
+
+  const visibleNodeKey = useMemo(
+    () => nodes.map((node) => node.id).sort().join('|'),
+    [nodes]
+  );
+
+  const visibleLinkKey = useMemo(
+    () =>
+      links
+        .map((link) => `${link.source}|${link.target}|${link.olympiad}|${link.year}`)
+        .sort()
+        .join('|'),
+    [links]
+  );
+
+  const expandedNodeKey = useMemo(
+    () => [...expandedNodeIds].sort().join('|'),
+    [expandedNodeIds]
+  );
+
+  useEffect(() => {
+    if (!graphRef.current) return;
+
+    // Root/expanded/label changes only affect node painting, so request a single
+    // redraw without disabling the library's idle auto-pause behavior.
+    const { x, y } = graphRef.current.centerAt();
+    graphRef.current.centerAt(x, y, 0);
+  }, [expandedNodeKey, rootId, showLabels]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- deps use stable string keys instead of array references
+  const graphData = useMemo(() => {
+    if (rootId !== cachedRootIdRef.current) {
+      cachedRootIdRef.current = rootId;
+      nodeCacheRef.current.clear();
+      nodePositionsRef.current.clear();
+    }
+
+    const cache = nodeCacheRef.current;
+    const posMap = nodePositionsRef.current;
+    const visibleNodeIds = new Set(nodes.map((node) => node.id));
+
+    for (const cachedId of cache.keys()) {
+      if (!visibleNodeIds.has(cachedId)) {
+        cache.delete(cachedId);
+        posMap.delete(cachedId);
+      }
+    }
+
+    const graphNodes = nodes.map((node) => {
+      let cachedNode = cache.get(node.id);
+
+      if (!cachedNode) {
+        cachedNode = { ...node };
+
+        const neighborLink = links.find(
+          (link) => link.source === node.id || link.target === node.id
+        );
+        if (neighborLink) {
+          const neighborId = neighborLink.source === node.id ? neighborLink.target : neighborLink.source;
+          const neighborPos = posMap.get(neighborId);
+          if (neighborPos) {
+            cachedNode.x = neighborPos.x + (Math.random() - 0.5) * 40;
+            cachedNode.y = neighborPos.y + (Math.random() - 0.5) * 40;
+            cachedNode.vx = 0;
+            cachedNode.vy = 0;
+          }
+        }
+
+        cache.set(node.id, cachedNode);
+        return cachedNode;
+      }
+
+      cachedNode.name = node.name;
+      return cachedNode;
+    });
+
+    return { nodes: graphNodes, links };
+  }, [rootId, visibleLinkKey, visibleNodeKey]);
 
   return (
     <div ref={containerRef} className="h-[350px] w-full border border-gray-200 rounded-lg overflow-hidden sm:h-[500px]">
@@ -128,14 +251,9 @@ export function GraphCanvas({ nodes, links, onNodeClick, showLabels }: GraphCanv
           ref={graphRef}
           graphData={graphData}
           nodeCanvasObject={nodeCanvasObject}
-          nodePointerAreaPaint={(node: any, color: string, ctx: CanvasRenderingContext2D, globalScale: number) => {
-            const radius = node.isRoot ? 8 / globalScale : 5 / globalScale;
-            ctx.beginPath();
-            ctx.arc(node.x, node.y, radius + 4 / globalScale, 0, 2 * Math.PI);
-            ctx.fillStyle = color;
-            ctx.fill();
-          }}
+          nodePointerAreaPaint={nodePointerAreaPaint}
           onNodeClick={handleNodeClick}
+          onNodeDragEnd={handleNodeDragEnd}
           onEngineStop={handleEngineStop}
           linkColor={linkColor}
           linkWidth={1.5}

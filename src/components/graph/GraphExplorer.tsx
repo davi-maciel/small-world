@@ -21,6 +21,7 @@ interface GraphExplorerState {
   rootId: string | null;
   visibleNodeIds: Set<string>;
   expandedNodeIds: Set<string>;
+  fitVersion: number;
 }
 
 type GraphExplorerAction =
@@ -40,6 +41,7 @@ function createReducer(adjacencyList: AdjacencyList) {
           rootId: action.studentId,
           visibleNodeIds,
           expandedNodeIds: new Set([action.studentId]),
+          fitVersion: state.fitVersion + 1,
         };
       }
 
@@ -63,24 +65,40 @@ function createReducer(adjacencyList: AdjacencyList) {
             for (const n of expNeighbors) reachable.add(n);
           }
 
+          let removedAnyNode = false;
           for (const nId of neighborIds) {
             if (nId === state.rootId) continue;
             if (newExpanded.has(nId)) continue;
             if (reachable.has(nId)) continue;
             newVisible.delete(nId);
+            removedAnyNode = true;
           }
 
-          return { ...state, visibleNodeIds: newVisible, expandedNodeIds: newExpanded };
+          return {
+            ...state,
+            visibleNodeIds: newVisible,
+            expandedNodeIds: newExpanded,
+            fitVersion: removedAnyNode ? state.fitVersion + 1 : state.fitVersion,
+          };
         } else {
           // Expand
           const { neighborIds } = getNeighborhood(adjacencyList, action.studentId);
           const newVisible = new Set(state.visibleNodeIds);
-          for (const nId of neighborIds) newVisible.add(nId);
+          let addedAnyNode = false;
+          for (const nId of neighborIds) {
+            if (!newVisible.has(nId)) addedAnyNode = true;
+            newVisible.add(nId);
+          }
 
           const newExpanded = new Set(state.expandedNodeIds);
           newExpanded.add(action.studentId);
 
-          return { ...state, visibleNodeIds: newVisible, expandedNodeIds: newExpanded };
+          return {
+            ...state,
+            visibleNodeIds: newVisible,
+            expandedNodeIds: newExpanded,
+            fitVersion: addedAnyNode ? state.fitVersion + 1 : state.fitVersion,
+          };
         }
       }
 
@@ -94,6 +112,7 @@ const initialState: GraphExplorerState = {
   rootId: null,
   visibleNodeIds: new Set(),
   expandedNodeIds: new Set(),
+  fitVersion: 0,
 };
 
 export function GraphExplorer({
@@ -128,8 +147,6 @@ export function GraphExplorer({
       nodes.push({
         id: student.id,
         name: student.name,
-        isRoot: id === state.rootId,
-        isExpanded: state.expandedNodeIds.has(id),
       });
     }
 
@@ -206,6 +223,9 @@ export function GraphExplorer({
           <GraphCanvas
             nodes={nodes}
             links={links}
+            rootId={state.rootId}
+            expandedNodeIds={state.expandedNodeIds}
+            fitVersion={state.fitVersion}
             onNodeClick={handleNodeClick}
             showLabels={showLabels}
           />
