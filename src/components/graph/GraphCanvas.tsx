@@ -1,7 +1,8 @@
 'use client';
 
-import { useRef, useEffect, useCallback, useState, useMemo } from 'react';
+import { useRef, useEffect, useCallback, useState, useMemo, forwardRef, useImperativeHandle } from 'react';
 import dynamic from 'next/dynamic';
+import type { ForceGraphMethods } from 'react-force-graph-2d';
 import { OLYMPIADS } from '@/config/olympiads';
 import type { OlympiadId } from '@/config/olympiads';
 
@@ -13,6 +14,7 @@ const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), {
 export interface GraphNode {
   id: string;
   name: string;
+  isMultiOlympiad?: boolean;
 }
 
 export interface GraphLink {
@@ -23,6 +25,10 @@ export interface GraphLink {
   curvature: number;
 }
 
+export interface GraphCanvasHandle {
+  renderHighRes(scale: number): string | null;
+}
+
 interface GraphCanvasProps {
   nodes: GraphNode[];
   links: GraphLink[];
@@ -31,6 +37,7 @@ interface GraphCanvasProps {
   fitVersion: number;
   onNodeClick: (nodeId: string) => void;
   showLabels: boolean;
+  fullGraph?: boolean;
 }
 
 interface PositionedGraphNode extends GraphNode {
@@ -40,7 +47,23 @@ interface PositionedGraphNode extends GraphNode {
   vy?: number;
 }
 
-export function GraphCanvas({
+type PositionedGraphLink = Omit<GraphLink, 'source' | 'target'> & {
+  source: string | PositionedGraphNode;
+  target: string | PositionedGraphNode;
+};
+
+function resolveLinkNode(
+  endpoint: PositionedGraphLink['source'] | PositionedGraphLink['target'],
+  nodeById: Map<string, PositionedGraphNode>
+): PositionedGraphNode | null {
+  if (typeof endpoint === 'string') {
+    return nodeById.get(endpoint) ?? null;
+  }
+
+  return endpoint ?? null;
+}
+
+export const GraphCanvas = forwardRef<GraphCanvasHandle, GraphCanvasProps>(function GraphCanvas({
   nodes,
   links,
   rootId,
@@ -48,14 +71,16 @@ export function GraphCanvas({
   fitVersion,
   onNodeClick,
   showLabels,
-}: GraphCanvasProps) {
+  fullGraph,
+}, ref) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const graphRef = useRef<any>(null);
+  const graphRef = useRef<ForceGraphMethods | undefined>(undefined);
   const nodeCacheRef = useRef(new Map<string, PositionedGraphNode>());
   const nodePositionsRef = useRef(new Map<string, { x: number; y: number }>());
   const cachedRootIdRef = useRef<string | null>(null);
   const lastQueuedFitVersionRef = useRef(0);
   const pendingAutoFitRef = useRef(false);
+  const globalScaleRef = useRef(1);
   const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
 
   useEffect(() => {
@@ -74,10 +99,17 @@ export function GraphCanvas({
 
   useEffect(() => {
     if (graphRef.current) {
-      graphRef.current.d3Force('charge').strength(-200);
-      graphRef.current.d3Force('link').distance(80);
+      const chargeForce = graphRef.current.d3Force('charge') as
+        | { strength: (strength: number) => void }
+        | undefined;
+      const linkForce = graphRef.current.d3Force('link') as
+        | { distance: (distance: number) => void }
+        | undefined;
+
+      chargeForce?.strength(fullGraph ? -60 : -200);
+      linkForce?.distance(fullGraph ? 40 : 80);
     }
-  }, [dimensions, nodes.length, links.length]);
+  }, [dimensions, nodes.length, links.length, fullGraph]);
 
   useEffect(() => {
     if (!dimensions || fitVersion <= lastQueuedFitVersionRef.current) return;
@@ -95,55 +127,75 @@ export function GraphCanvas({
 
   const handleNodeClick = useCallback(
     (node: any) => {
-      onNodeClick(node.id);
+      if (!fullGraph) {
+        onNodeClick(node.id);
+      }
     },
-    [onNodeClick]
+    [onNodeClick, fullGraph]
   );
 
   const handleNodeDragEnd = useCallback(() => {
-    pendingAutoFitRef.current = true;
-  }, []);
+    if (!fullGraph) {
+      pendingAutoFitRef.current = true;
+    }
+  }, [fullGraph]);
 
   const nodeCanvasObject = useCallback(
     (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
-      // Track positions for placing new nodes near neighbors
       nodePositionsRef.current.set(node.id, { x: node.x, y: node.y });
+      globalScaleRef.current = globalScale;
 
       const label = node.name;
       const fontSize = 12 / globalScale;
       ctx.font = `${fontSize}px sans-serif`;
 
       const isRoot = node.id === rootId;
-      const isExpanded = expandedNodeIds.has(node.id);
-
-      const radius = isRoot ? 8 / globalScale : 5 / globalScale;
+      // Full graph: world-space sizes (scale with zoom). Focused: screen-space.
+      const radius = fullGraph ? 4 : isRoot ? 8 / globalScale : 5 / globalScale;
 
       ctx.beginPath();
       ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
 
-      if (isRoot) {
-        ctx.fillStyle = '#111827';
-      } else if (isExpanded) {
-        ctx.fillStyle = '#6B7280';
+      if (fullGraph) {
+        if (node.isMultiOlympiad) {
+          ctx.fillStyle = '#6B7280';
+          ctx.fill();
+          ctx.strokeStyle = '#111827';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = '#D1D5DB';
+          ctx.fill();
+        }
       } else {
-        ctx.fillStyle = '#D1D5DB';
-      }
-      ctx.fill();
+        const isExpanded = expandedNodeIds.has(node.id);
 
-      if (isRoot || isExpanded) {
-        ctx.strokeStyle = '#111827';
-        ctx.lineWidth = 1.5 / globalScale;
-        ctx.stroke();
+        if (isRoot) {
+          ctx.fillStyle = '#111827';
+        } else if (isExpanded) {
+          ctx.fillStyle = '#6B7280';
+        } else {
+          ctx.fillStyle = '#D1D5DB';
+        }
+        ctx.fill();
+
+        if (isRoot || isExpanded) {
+          ctx.strokeStyle = '#111827';
+          ctx.lineWidth = 1.5 / globalScale;
+          ctx.stroke();
+        }
       }
 
-      if (showLabels) {
+      const shouldShowLabel = showLabels;
+      if (shouldShowLabel) {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
         ctx.fillStyle = '#374151';
-        ctx.fillText(label, node.x, node.y + radius + 2 / globalScale);
+        const labelOffset = fullGraph ? radius + 1 : radius + 2 / globalScale;
+        ctx.fillText(label, node.x, node.y + labelOffset);
       }
     },
-    [expandedNodeIds, rootId, showLabels]
+    [expandedNodeIds, rootId, showLabels, fullGraph]
   );
 
   const linkColor = useCallback((link: any) => {
@@ -155,15 +207,21 @@ export function GraphCanvas({
     return link.curvature;
   }, []);
 
+  // In full graph mode, scale link width with zoom to keep world-space proportions
+  const fullGraphLinkWidth = useCallback(() => {
+    return 1 * globalScaleRef.current;
+  }, []);
+
   const nodePointerAreaPaint = useCallback(
     (node: any, color: string, ctx: CanvasRenderingContext2D, globalScale: number) => {
-      const radius = node.id === rootId ? 8 / globalScale : 5 / globalScale;
+      const radius = fullGraph ? 4 : node.id === rootId ? 8 / globalScale : 5 / globalScale;
+      const padding = fullGraph ? 3 : 4 / globalScale;
       ctx.beginPath();
-      ctx.arc(node.x, node.y, radius + 4 / globalScale, 0, 2 * Math.PI);
+      ctx.arc(node.x, node.y, radius + padding, 0, 2 * Math.PI);
       ctx.fillStyle = color;
       ctx.fill();
     },
-    [rootId]
+    [rootId, fullGraph]
   );
 
   const visibleNodeKey = useMemo(
@@ -195,9 +253,10 @@ export function GraphCanvas({
   }, [expandedNodeKey, rootId, showLabels]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps -- deps use stable string keys instead of array references
-  const graphData = useMemo(() => {
-    if (rootId !== cachedRootIdRef.current) {
-      cachedRootIdRef.current = rootId;
+  const graphData = useMemo((): { nodes: PositionedGraphNode[]; links: PositionedGraphLink[] } => {
+    const cacheKey = fullGraph ? '__full__' : rootId;
+    if (cacheKey !== cachedRootIdRef.current) {
+      cachedRootIdRef.current = cacheKey;
       nodeCacheRef.current.clear();
       nodePositionsRef.current.clear();
     }
@@ -238,11 +297,91 @@ export function GraphCanvas({
       }
 
       cachedNode.name = node.name;
+      cachedNode.isMultiOlympiad = node.isMultiOlympiad;
       return cachedNode;
     });
 
-    return { nodes: graphNodes, links };
-  }, [rootId, visibleLinkKey, visibleNodeKey]);
+    return {
+      nodes: graphNodes,
+      links: links as PositionedGraphLink[],
+    };
+  }, [rootId, fullGraph, visibleLinkKey, visibleNodeKey]);
+
+  // High-res offscreen render — kept in a ref so the imperative handle is always current
+  const renderHighResRef = useRef<(scale: number) => string | null>(null);
+  renderHighResRef.current = (scale: number) => {
+    const fg = graphRef.current;
+    if (!fg || !dimensions) return null;
+
+    const w = dimensions.width * scale;
+    const h = dimensions.height * scale;
+
+    const offscreen = document.createElement('canvas');
+    offscreen.width = w;
+    offscreen.height = h;
+    const ctx = offscreen.getContext('2d')!;
+
+    // White background
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, w, h);
+
+    // Get current viewport transform
+    const currentZoom: number = fg.zoom();
+    const center = fg.centerAt();
+
+    // Apply viewport transform at higher resolution
+    ctx.save();
+    ctx.translate(w / 2, h / 2);
+    ctx.scale(currentZoom * scale, currentZoom * scale);
+    ctx.translate(-center.x, -center.y);
+
+    // Draw links from the same memoized data passed into the live canvas.
+    const nodeById = new Map(graphData.nodes.map((node) => [node.id, node]));
+    for (const link of graphData.links) {
+      const src = resolveLinkNode(link.source, nodeById);
+      const tgt = resolveLinkNode(link.target, nodeById);
+      if (!src || !tgt || src.x == null || src.y == null || tgt.x == null || tgt.y == null) {
+        continue;
+      }
+
+      const config = OLYMPIADS[link.olympiad as OlympiadId];
+      ctx.strokeStyle = config?.color ?? '#999';
+      // The library renders linkWidth in screen-space (divides by globalScale).
+      // For our offscreen render, we draw in graph-space directly.
+      // Full graph world-space: 1 graph unit. Focused screen-space: 1.5 / zoom graph units.
+      ctx.lineWidth = fullGraph ? 1 : 1.5 / currentZoom;
+
+      ctx.beginPath();
+      ctx.moveTo(src.x, src.y);
+
+      const c = link.curvature ?? 0;
+      if (c !== 0) {
+        const dx = tgt.x - src.x;
+        const dy = tgt.y - src.y;
+        const cpx = (src.x + tgt.x) / 2 - dy * c;
+        const cpy = (src.y + tgt.y) / 2 + dx * c;
+        ctx.quadraticCurveTo(cpx, cpy, tgt.x, tgt.y);
+      } else {
+        ctx.lineTo(tgt.x, tgt.y);
+      }
+      ctx.stroke();
+    }
+
+    // Draw nodes (reuse the same rendering logic)
+    for (const node of graphData.nodes) {
+      if (node.x == null || node.y == null) continue;
+      nodeCanvasObject(node, ctx, currentZoom);
+    }
+
+    ctx.restore();
+    return offscreen.toDataURL('image/png');
+  };
+
+  useImperativeHandle(ref, () => ({
+    renderHighRes(scale: number) {
+      return renderHighResRef.current?.(scale) ?? null;
+    },
+  }), []);
 
   return (
     <div ref={containerRef} className="h-[350px] w-full border border-gray-200 rounded-lg overflow-hidden sm:h-[500px]">
@@ -256,7 +395,7 @@ export function GraphCanvas({
           onNodeDragEnd={handleNodeDragEnd}
           onEngineStop={handleEngineStop}
           linkColor={linkColor}
-          linkWidth={1.5}
+          linkWidth={fullGraph ? fullGraphLinkWidth : 1.5}
           linkCurvature={linkCurvature}
           width={dimensions.width}
           height={dimensions.height}
@@ -265,4 +404,4 @@ export function GraphCanvas({
       )}
     </div>
   );
-}
+});
