@@ -1,6 +1,6 @@
 'use client';
 
-import { useReducer, useMemo, useCallback } from 'react';
+import { useReducer, useMemo, useCallback, useState } from 'react';
 import type Fuse from 'fuse.js';
 import type { Student, Edge, AdjacencyList } from '@/types/graph';
 import { getNeighborhood } from '@/lib/graph';
@@ -106,6 +106,8 @@ export function GraphExplorer({
   const reducer = useMemo(() => createReducer(adjacencyList), [adjacencyList]);
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const [showLabels, setShowLabels] = useState(true);
+
   const selectedStudent = state.rootId ? studentsMap[state.rootId] ?? null : null;
 
   const handleSelectStudent = useCallback((student: Student) => {
@@ -170,14 +172,30 @@ export function GraphExplorer({
 
   return (
     <div>
-      <div className="mb-4 max-w-sm">
-        <StudentCombobox
-          students={students}
-          selected={selectedStudent}
-          onSelect={handleSelectStudent}
-          fuse={fuse}
-          placeholder="Buscar estudante..."
-        />
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="max-w-sm flex-1">
+          <StudentCombobox
+            students={students}
+            selected={selectedStudent}
+            onSelect={handleSelectStudent}
+            fuse={fuse}
+            placeholder="Buscar estudante..."
+          />
+        </div>
+        <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer select-none">
+          <span>Nomes</span>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={showLabels}
+            onClick={() => setShowLabels((v) => !v)}
+            className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full transition-colors ${showLabels ? 'bg-gray-800' : 'bg-gray-300'}`}
+          >
+            <span
+              className={`inline-block h-3.5 w-3.5 rounded-full bg-white transition-transform ${showLabels ? 'translate-x-[18px]' : 'translate-x-[3px]'}`}
+            />
+          </button>
+        </label>
       </div>
 
       {state.rootId ? (
@@ -189,6 +207,7 @@ export function GraphExplorer({
             nodes={nodes}
             links={links}
             onNodeClick={handleNodeClick}
+            showLabels={showLabels}
           />
           <div className="hidden sm:block">
             <GraphLegend />

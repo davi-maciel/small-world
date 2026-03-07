@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useCallback, useState } from 'react';
+import { useRef, useEffect, useCallback, useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { OLYMPIADS } from '@/config/olympiads';
 import type { OlympiadId } from '@/config/olympiads';
@@ -29,9 +29,10 @@ interface GraphCanvasProps {
   nodes: GraphNode[];
   links: GraphLink[];
   onNodeClick: (nodeId: string) => void;
+  showLabels: boolean;
 }
 
-export function GraphCanvas({ nodes, links, onNodeClick }: GraphCanvasProps) {
+export function GraphCanvas({ nodes, links, onNodeClick, showLabels }: GraphCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const graphRef = useRef<any>(null);
   const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
@@ -99,12 +100,14 @@ export function GraphCanvas({ nodes, links, onNodeClick }: GraphCanvasProps) {
         ctx.stroke();
       }
 
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'top';
-      ctx.fillStyle = '#374151';
-      ctx.fillText(label, node.x, node.y + radius + 2 / globalScale);
+      if (showLabels) {
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.fillStyle = '#374151';
+        ctx.fillText(label, node.x, node.y + radius + 2 / globalScale);
+      }
     },
-    []
+    [showLabels]
   );
 
   const linkColor = useCallback((link: any) => {
@@ -116,12 +119,14 @@ export function GraphCanvas({ nodes, links, onNodeClick }: GraphCanvasProps) {
     return link.curvature;
   }, []);
 
+  const graphData = useMemo(() => ({ nodes, links }), [nodes, links]);
+
   return (
     <div ref={containerRef} className="h-[350px] w-full border border-gray-200 rounded-lg overflow-hidden sm:h-[500px]">
       {dimensions && (
         <ForceGraph2D
           ref={graphRef}
-          graphData={{ nodes, links }}
+          graphData={graphData}
           nodeCanvasObject={nodeCanvasObject}
           nodePointerAreaPaint={(node: any, color: string, ctx: CanvasRenderingContext2D, globalScale: number) => {
             const radius = node.isRoot ? 8 / globalScale : 5 / globalScale;
