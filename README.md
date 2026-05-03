@@ -9,6 +9,7 @@ Visualizes connections between Brazilian students who participated in internatio
 - **Participations** — searchable table of all participations, filterable by olympiad and year
 - **Degrees of separation** — finds the shortest path between two students via BFS
 - **Graph explorer** — interactive force-directed graph visualization
+- **Genealogia** — teacher–student relationship tree with per-person stats
 
 ## Development
 

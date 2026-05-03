@@ -12,10 +12,12 @@
     "scrape:eupho": "tsx scripts/scrapers/eupho-pdfs.ts",
     "scrape:all": "npm run scrape:ipho && npm run scrape:ipho:supplement && npm run scrape:eupho",
     "build:graph": "tsx scripts/build-graph.ts",
-    "data:refresh": "npm run scrape:all && npm run build:graph"
+    "build:teaching": "tsx scripts/build-teaching.ts",
+    "data:refresh": "npm run scrape:all && npm run build:graph && npm run build:teaching"
   },
   "devDependencies": {
     "cheerio": "^1.2.0",
+    "csv-parse": "^6.1.0",
     "tsx": "^4.21.0",
     "unpdf": "^1.4.0",
     "zod": "^4.3.6"

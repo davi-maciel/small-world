@@ -1,0 +1,453 @@
+{
+  "edges": [
+    {
+      "teacher": "alberto-akira-ito-albernaz",
+      "student": "gabriel-mendes-freitas"
+    },
+    {
+      "teacher": "alberto-akira-ito-albernaz",
+      "student": "tiago-rocha-morais-de-santiago"
+    },
+    {
+      "teacher": "antonio-italo-lima-lopes",
+      "student": "alberto-akira-ito-albernaz"
+    },
+    {
+      "teacher": "antonio-italo-lima-lopes",
+      "student": "lucas-tavares-vitoriano"
+    },
+    {
+      "teacher": "antonio-italo-lima-lopes",
+      "student": "ualype-de-andrade-uchoa"
+    },
+    {
+      "teacher": "arthur-alencar-spuri",
+      "student": "paulo-henrique-pinheiro-tavares"
+    },
+    {
+      "teacher": "arthur-gomes-gurjao",
+      "student": "benny-pereira-freitas"
+    },
+    {
+      "teacher": "arthur-gomes-gurjao",
+      "student": "joao-victor-evers-cordeiro"
+    },
+    {
+      "teacher": "arthur-jiun-wei-hwang",
+      "student": "bruno-machado-feltran"
+    },
+    {
+      "teacher": "bruno-makoto-tanabe-de-lima",
+      "student": "gabriel-mazili-pedroza"
+    },
+    {
+      "teacher": "caio-augusto-siqueira-da-silva",
+      "student": "matheus-felipe-ramos-borges"
+    },
+    {
+      "teacher": "daniel-mitsutani",
+      "student": "thiago-bergamaschi"
+    },
+    {
+      "teacher": "davi-maciel-dias",
+      "student": "ualype-de-andrade-uchoa"
+    },
+    {
+      "teacher": "deric-de-albuquerque-simao",
+      "student": "davi-maciel-dias"
+    },
+    {
+      "teacher": "deric-de-albuquerque-simao",
+      "student": "felipe-farias-ribeiro-filho"
+    },
+    {
+      "teacher": "deric-de-albuquerque-simao",
+      "student": "joao-victor-evers-cordeiro"
+    },
+    {
+      "teacher": "deric-de-albuquerque-simao",
+      "student": "victor-helano-xavier-de-castro"
+    },
+    {
+      "teacher": "deric-de-albuquerque-simao",
+      "student": "ygor-de-santana-moura"
+    },
+    {
+      "teacher": "diogo-correia-netto",
+      "student": "gabriel-guerra-trigo"
+    },
+    {
+      "teacher": "diogo-correia-netto",
+      "student": "thomas-ross-white-bergamaschi"
+    },
+    {
+      "teacher": "everton-albuquerque-de-oliveira",
+      "student": "arthur-gomes-gurjao"
+    },
+    {
+      "teacher": "everton-albuquerque-de-oliveira",
+      "student": "benny-pereira-freitas"
+    },
+    {
+      "teacher": "everton-albuquerque-de-oliveira",
+      "student": "joao-victor-evers-cordeiro"
+    },
+    {
+      "teacher": "felipe-de-castro-silva",
+      "student": "alberto-akira-ito-albernaz"
+    },
+    {
+      "teacher": "felipe-de-castro-silva",
+      "student": "lucas-tavares-vitoriano"
+    },
+    {
+      "teacher": "felipe-mourad-pereira",
+      "student": "gabriel-telles-missailidis"
+    },
+    {
+      "teacher": "fernando-frota-junior",
+      "student": "davi-maciel-dias"
+    },
+    {
+      "teacher": "fernando-frota-junior",
+      "student": "felipe-farias-ribeiro-filho"
+    },
+    {
+      "teacher": "fernando-wellysson-de-alencar-sobreira",
+      "student": "thiago-bergamaschi"
+    },
+    {
+      "teacher": "fernando-wellysson-de-alencar-sobreira",
+      "student": "thomas-ross-white-bergamaschi"
+    },
+    {
+      "teacher": "gabriel-baptista-bezerra-de-melo",
+      "student": "gabriel-mendes-freitas"
+    },
+    {
+      "teacher": "gabriel-baptista-bezerra-de-melo",
+      "student": "lucas-praca-oliveira"
+    },
+    {
+      "teacher": "gabriel-golfetti",
+      "student": "bruno-machado-feltran"
+    },
+    {
+      "teacher": "gabriel-golfetti",
+      "student": "caio-yamashita-risseto"
+    },
+    {
+      "teacher": "gabriel-golfetti",
+      "student": "gabriel-mazili-pedroza"
+    },
+    {
+      "teacher": "gabriel-golfetti",
+      "student": "lucas-takayasu"
+    },
+    {
+      "teacher": "gabriel-hemetrio-de-menezes",
+      "student": "lucas-praca-oliveira"
+    },
+    {
+      "teacher": "gabriel-hemetrio-de-menezes",
+      "student": "victor-helano-xavier-de-castro"
+    },
+    {
+      "teacher": "gabriel-mazili-pedroza",
+      "student": "bruno-machado-feltran"
+    },
+    {
+      "teacher": "gabriel-mazili-pedroza",
+      "student": "murilo-de-andrade-porfirio"
+    },
+    {
+      "teacher": "gabriel-mendes-freitas",
+      "student": "joao-vitor-garcia-geiss"
+    },
+    {
+      "teacher": "gabriel-mendes-freitas",
+      "student": "paulo-henrique-pinheiro-tavares"
+    },
+    {
+      "teacher": "gabriel-morais-barros",
+      "student": "paulo-vinicius-rodrigues-de-azevedo"
+    },
+    {
+      "teacher": "gabriel-morais-barros",
+      "student": "victor-helano-xavier-de-castro"
+    },
+    {
+      "teacher": "gustavo-salinas-de-souza",
+      "student": "thiago-bergamaschi"
+    },
+    {
+      "teacher": "henrique-zanarella",
+      "student": "bruno-machado-feltran"
+    },
+    {
+      "teacher": "henrique-zanarella",
+      "student": "caio-yamashita-risseto"
+    },
+    {
+      "teacher": "henrique-zanarella",
+      "student": "gabriel-mazili-pedroza"
+    },
+    {
+      "teacher": "henrique-zanarella",
+      "student": "henrique-naoto-kojima"
+    },
+    {
+      "teacher": "henrique-zanarella",
+      "student": "murilo-de-andrade-porfirio"
+    },
+    {
+      "teacher": "ian-seo-takose",
+      "student": "gabriel-mazili-pedroza"
+    },
+    {
+      "teacher": "isak-czeresnia-etinger",
+      "student": "thiago-bergamaschi"
+    },
+    {
+      "teacher": "ivan-guilhon-mitoso-rocha",
+      "student": "murilo-de-andrade-porfirio"
+    },
+    {
+      "teacher": "joao-victor-evers-cordeiro",
+      "student": "benny-pereira-freitas"
+    },
+    {
+      "teacher": "joao-victor-evers-cordeiro",
+      "student": "jose-ulisses-fonseca-mendonca"
+    },
+    {
+      "teacher": "leonardo-bruno-lima",
+      "student": "davi-maciel-dias"
+    },
+    {
+      "teacher": "leonardo-bruno-lima",
+      "student": "joao-victor-evers-cordeiro"
+    },
+    {
+      "teacher": "leonardo-bruno-lima",
+      "student": "ygor-de-santana-moura"
+    },
+    {
+      "teacher": "lucas-lourenco-hernandes",
+      "student": "bruno-machado-feltran"
+    },
+    {
+      "teacher": "lucas-lourenco-hernandes",
+      "student": "caio-yamashita-risseto"
+    },
+    {
+      "teacher": "lucas-lourenco-hernandes",
+      "student": "gabriel-mazili-pedroza"
+    },
+    {
+      "teacher": "lucas-lourenco-hernandes",
+      "student": "henrique-naoto-kojima"
+    },
+    {
+      "teacher": "lucas-lourenco-hernandes",
+      "student": "lucas-takayasu"
+    },
+    {
+      "teacher": "lucas-lourenco-hernandes",
+      "student": "murilo-de-andrade-porfirio"
+    },
+    {
+      "teacher": "lucas-praca-oliveira",
+      "student": "arthur-alencar-spuri"
+    },
+    {
+      "teacher": "lucas-praca-oliveira",
+      "student": "gabriel-mendes-freitas"
+    },
+    {
+      "teacher": "lucas-praca-oliveira",
+      "student": "joao-vitor-garcia-geiss"
+    },
+    {
+      "teacher": "lucas-praca-oliveira",
+      "student": "paulo-henrique-pinheiro-tavares"
+    },
+    {
+      "teacher": "lucas-praca-oliveira",
+      "student": "tiago-rocha-morais-de-santiago"
+    },
+    {
+      "teacher": "lucas-takayasu",
+      "student": "bruno-machado-feltran"
+    },
+    {
+      "teacher": "lucas-takayasu",
+      "student": "gabriel-mazili-pedroza"
+    },
+    {
+      "teacher": "lucas-tavares-vitoriano",
+      "student": "arthur-alencar-spuri"
+    },
+    {
+      "teacher": "lucas-tavares-vitoriano",
+      "student": "joao-vitor-garcia-geiss"
+    },
+    {
+      "teacher": "lucas-tavares-vitoriano",
+      "student": "lucas-praca-oliveira"
+    },
+    {
+      "teacher": "lucas-tavares-vitoriano",
+      "student": "paulo-henrique-pinheiro-tavares"
+    },
+    {
+      "teacher": "lucas-tavares-vitoriano",
+      "student": "tiago-rocha-morais-de-santiago"
+    },
+    {
+      "teacher": "lucas-tavares-vitoriano",
+      "student": "victor-helano-xavier-de-castro"
+    },
+    {
+      "teacher": "luciano-rodrigues-saraiva-leao",
+      "student": "felipe-farias-ribeiro-filho"
+    },
+    {
+      "teacher": "luciano-rodrigues-saraiva-leao",
+      "student": "ygor-de-santana-moura"
+    },
+    {
+      "teacher": "mateus-de-castro-silva",
+      "student": "alberto-akira-ito-albernaz"
+    },
+    {
+      "teacher": "mateus-de-castro-silva",
+      "student": "lucas-tavares-vitoriano"
+    },
+    {
+      "teacher": "matheus-felipe-ramos-borges",
+      "student": "felipe-brandao-souto"
+    },
+    {
+      "teacher": "matheus-lopes-ponciano-lima",
+      "student": "alberto-akira-ito-albernaz"
+    },
+    {
+      "teacher": "matheus-lopes-ponciano-lima",
+      "student": "lucas-tavares-vitoriano"
+    },
+    {
+      "teacher": "matheus-lopes-ponciano-lima",
+      "student": "ualype-de-andrade-uchoa"
+    },
+    {
+      "teacher": "murilo-de-andrade-porfirio",
+      "student": "bruno-machado-feltran"
+    },
+    {
+      "teacher": "otavio-dambrosio-arounian-ramos-bittencourt",
+      "student": "gabriel-telles-missailidis"
+    },
+    {
+      "teacher": "rafael-moreno-ribeiro",
+      "student": "arthur-gomes-gurjao"
+    },
+    {
+      "teacher": "rafael-moreno-ribeiro",
+      "student": "sergio-carneiro-bittencourt"
+    },
+    {
+      "teacher": "rafael-prado-basto",
+      "student": "alberto-akira-ito-albernaz"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "arthur-alencar-spuri"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "davi-maciel-dias"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "eyke-cardoso-de-souza-torres"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "felipe-farias-ribeiro-filho"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "joao-vitor-garcia-geiss"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "matheus-leonardo-faco"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "paulo-henrique-pinheiro-tavares"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "victor-helano-xavier-de-castro"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "ygor-de-santana-moura"
+    },
+    {
+      "teacher": "thiago-bergamaschi",
+      "student": "thomas-ross-white-bergamaschi"
+    },
+    {
+      "teacher": "thiago-frota-maranhao",
+      "student": "arthur-gomes-gurjao"
+    },
+    {
+      "teacher": "thomas-ross-white-bergamaschi",
+      "student": "gabriel-guerra-trigo"
+    },
+    {
+      "teacher": "victor-almeida-ivo",
+      "student": "rafael-timbo"
+    },
+    {
+      "teacher": "victor-hugo-de-oliveira-bastos",
+      "student": "davi-maciel-dias"
+    },
+    {
+      "teacher": "victor-hugo-de-oliveira-bastos",
+      "student": "felipe-farias-ribeiro-filho"
+    },
+    {
+      "teacher": "victor-hugo-de-oliveira-bastos",
+      "student": "ygor-de-santana-moura"
+    },
+    {
+      "teacher": "vinicius-de-alcantara-nevoa",
+      "student": "ualype-de-andrade-uchoa"
+    },
+    {
+      "teacher": "vinicius-ferreira-rodrigues",
+      "student": "paulo-vinicius-rodrigues-de-azevedo"
+    },
+    {
+      "teacher": "vinicius-ferreira-rodrigues",
+      "student": "ualype-de-andrade-uchoa"
+    },
+    {
+      "teacher": "vitor-mori",
+      "student": "lucas-takayasu"
+    },
+    {
+      "teacher": "ygor-de-santana-moura",
+      "student": "arthur-gomes-gurjao"
+    }
+  ],
+  "metadata": {
+    "generatedAt": "2026-05-25T21:43:24.094Z",
+    "edgeCount": 111,
+    "respondentCount": 34
+  }
+}

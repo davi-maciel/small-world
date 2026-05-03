@@ -274,15 +274,7 @@ export function GraphExplorer({
   return (
     <div>
       <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        {isFullGraph ? (
-          <button
-            type="button"
-            onClick={handleExitFullGraph}
-            className="text-sm text-gray-600 hover:text-gray-900 cursor-pointer select-none"
-          >
-            &larr; Voltar
-          </button>
-        ) : (
+        {!isFullGraph && (
           <div className="max-w-sm flex-1">
             <StudentCombobox
               students={students}
@@ -293,18 +285,26 @@ export function GraphExplorer({
             />
           </div>
         )}
-        <div className="flex items-center gap-4">
-          {!isFullGraph && (
-            <button
-              type="button"
-              onClick={handleEnterFullGraph}
-              className="text-sm text-gray-600 hover:text-gray-900 cursor-pointer select-none"
-            >
-              Ver grafo completo
-            </button>
-          )}
-          {(isFullGraph || state.rootId) && (
-            <>
+        {(isFullGraph || state.rootId) && (
+          <div className={`flex items-center gap-4 ${isFullGraph ? 'w-full' : 'w-full sm:w-auto'}`}>
+            {isFullGraph ? (
+              <button
+                type="button"
+                onClick={handleExitFullGraph}
+                className="text-sm text-gray-600 hover:text-gray-900 cursor-pointer select-none"
+              >
+                &larr; Voltar
+              </button>
+            ) : state.rootId ? (
+              <button
+                type="button"
+                onClick={handleEnterFullGraph}
+                className="text-sm text-gray-600 hover:text-gray-900 cursor-pointer select-none"
+              >
+                Ver grafo completo
+              </button>
+            ) : null}
+            <div className={`flex items-center gap-4 ${isFullGraph ? 'ml-auto' : 'ml-auto sm:ml-0'}`}>
               <button
                 type="button"
                 onClick={handleDownloadPNG}
@@ -326,9 +326,9 @@ export function GraphExplorer({
                   />
                 </button>
               </label>
-            </>
-          )}
-        </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {isFullGraph ? (
@@ -370,8 +370,15 @@ export function GraphExplorer({
           </div>
         </div>
       ) : (
-        <div className="flex items-center justify-center h-[350px] border border-gray-200 rounded-lg text-gray-400 text-sm sm:h-[500px]">
-          Selecione um estudante para explorar o grafo.
+        <div className="flex flex-col items-center justify-center gap-4 h-[350px] border border-gray-200 rounded-lg text-gray-400 text-sm sm:h-[500px]">
+          <span>Selecione um estudante para explorar o grafo.</span>
+          <button
+            type="button"
+            onClick={handleEnterFullGraph}
+            className="text-sm text-gray-600 hover:text-gray-900 cursor-pointer select-none underline"
+          >
+            Ver grafo completo
+          </button>
         </div>
       )}
     </div>
