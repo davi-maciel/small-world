@@ -7,3 +7,12 @@ next-env.d.ts
 *.md
 !README.md
 .vercel
+.gstack/
+.DS_Store
+tmp/
+tsconfig.tsbuildinfo
+
+# Only commit JSON files inside data/
+data/**
+!data/**/
+!data/**/*.json
