@@ -3181,7 +3181,7 @@
         {
           "olympiad": "nbpho",
           "year": 2026,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -3193,7 +3193,7 @@
         {
           "olympiad": "nbpho",
           "year": 2026,
-          "medal": null
+          "medal": "honorable-mention"
         }
       ]
     },
@@ -3205,7 +3205,7 @@
         {
           "olympiad": "nbpho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -3217,7 +3217,7 @@
         {
           "olympiad": "nbpho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -3229,7 +3229,7 @@
         {
           "olympiad": "nbpho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     }
@@ -6393,7 +6393,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-03-07T20:40:59.129Z",
+    "generatedAt": "2026-05-25T22:46:11.735Z",
     "studentCount": 254,
     "edgeCount": 526
   }
