@@ -559,14 +559,17 @@ export const TeachingTreeCanvas = forwardRef<TeachingTreeCanvasHandle, TeachingT
 
     const linkCurvature = useCallback(
       (link: any) => {
-        if (!selectedId) return 0;
         const srcId = typeof link.source === 'string' ? link.source : link.source?.id;
         const tgtId = typeof link.target === 'string' ? link.target : link.target?.id;
         const src = nodeMap.get(srcId);
         const tgt = nodeMap.get(tgtId);
-        const sel = nodeMap.get(selectedId);
-        if (!src || !tgt || !sel) return 0;
+        if (!src || !tgt) return 0;
         if (Math.abs(src.x - tgt.x) > 1) return 0;
+        if (!selectedId) {
+          return tgt.y > src.y ? 0.4 : -0.4;
+        }
+        const sel = nodeMap.get(selectedId);
+        if (!sel) return 0;
         const xSign = Math.sign(src.x - sel.x);
         const ySign = Math.sign(tgt.y - src.y);
         if (xSign === 0 || ySign === 0) return 0;
