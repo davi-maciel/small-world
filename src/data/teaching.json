@@ -42,11 +42,23 @@
     },
     {
       "teacher": "caio-augusto-siqueira-da-silva",
+      "student": "lucas-alencar-sampaio"
+    },
+    {
+      "teacher": "caio-augusto-siqueira-da-silva",
       "student": "matheus-felipe-ramos-borges"
     },
     {
       "teacher": "daniel-mitsutani",
       "student": "thiago-bergamaschi"
+    },
+    {
+      "teacher": "davi-maciel-dias",
+      "student": "lucas-alencar-sampaio"
+    },
+    {
+      "teacher": "davi-maciel-dias",
+      "student": "rafael-moreno-ribeiro"
     },
     {
       "teacher": "davi-maciel-dias",
@@ -63,6 +75,14 @@
     {
       "teacher": "deric-de-albuquerque-simao",
       "student": "joao-victor-evers-cordeiro"
+    },
+    {
+      "teacher": "deric-de-albuquerque-simao",
+      "student": "jose-ulisses-fonseca-mendonca"
+    },
+    {
+      "teacher": "deric-de-albuquerque-simao",
+      "student": "rafael-moreno-ribeiro"
     },
     {
       "teacher": "deric-de-albuquerque-simao",
@@ -93,12 +113,24 @@
       "student": "joao-victor-evers-cordeiro"
     },
     {
+      "teacher": "felipe-brandao-souto",
+      "student": "alan-pinheiro-de-oliveira"
+    },
+    {
+      "teacher": "felipe-brandao-souto",
+      "student": "lucas-carvalho"
+    },
+    {
       "teacher": "felipe-de-castro-silva",
       "student": "alberto-akira-ito-albernaz"
     },
     {
       "teacher": "felipe-de-castro-silva",
       "student": "lucas-tavares-vitoriano"
+    },
+    {
+      "teacher": "felipe-farias-ribeiro-filho",
+      "student": "rafael-moreno-ribeiro"
     },
     {
       "teacher": "felipe-mourad-pereira",
@@ -119,6 +151,10 @@
     {
       "teacher": "fernando-wellysson-de-alencar-sobreira",
       "student": "thomas-ross-white-bergamaschi"
+    },
+    {
+      "teacher": "gabriel-baptista-bezerra-de-melo",
+      "student": "felipe-maia-silva"
     },
     {
       "teacher": "gabriel-baptista-bezerra-de-melo",
@@ -201,6 +237,10 @@
       "student": "murilo-de-andrade-porfirio"
     },
     {
+      "teacher": "hugo-fares-menhem",
+      "student": "felipe-maia-silva"
+    },
+    {
       "teacher": "ian-seo-takose",
       "student": "gabriel-mazili-pedroza"
     },
@@ -231,6 +271,10 @@
     {
       "teacher": "leonardo-bruno-lima",
       "student": "ygor-de-santana-moura"
+    },
+    {
+      "teacher": "levy-bruno-do-nascimento-batista",
+      "student": "antonio-italo-lima-lopes"
     },
     {
       "teacher": "lucas-lourenco-hernandes",
@@ -290,6 +334,10 @@
     },
     {
       "teacher": "lucas-tavares-vitoriano",
+      "student": "felipe-maia-silva"
+    },
+    {
+      "teacher": "lucas-tavares-vitoriano",
       "student": "joao-vitor-garcia-geiss"
     },
     {
@@ -307,6 +355,10 @@
     {
       "teacher": "lucas-tavares-vitoriano",
       "student": "victor-helano-xavier-de-castro"
+    },
+    {
+      "teacher": "luciano-rodrigues-saraiva-leao",
+      "student": "antonio-italo-lima-lopes"
     },
     {
       "teacher": "luciano-rodrigues-saraiva-leao",
@@ -329,6 +381,10 @@
       "student": "felipe-brandao-souto"
     },
     {
+      "teacher": "matheus-felipe-ramos-borges",
+      "student": "lucas-carvalho"
+    },
+    {
       "teacher": "matheus-lopes-ponciano-lima",
       "student": "alberto-akira-ito-albernaz"
     },
@@ -349,6 +405,14 @@
       "student": "gabriel-telles-missailidis"
     },
     {
+      "teacher": "paulo-henrique-dos-santos-silva",
+      "student": "felipe-maia-silva"
+    },
+    {
+      "teacher": "paulo-toshio-kitayama",
+      "student": "antonio-italo-lima-lopes"
+    },
+    {
       "teacher": "rafael-moreno-ribeiro",
       "student": "arthur-gomes-gurjao"
     },
@@ -359,6 +423,10 @@
     {
       "teacher": "rafael-prado-basto",
       "student": "alberto-akira-ito-albernaz"
+    },
+    {
+      "teacher": "rafael-timbo",
+      "student": "antonio-italo-lima-lopes"
     },
     {
       "teacher": "rafael-timbo",
@@ -410,7 +478,15 @@
     },
     {
       "teacher": "victor-almeida-ivo",
+      "student": "antonio-italo-lima-lopes"
+    },
+    {
+      "teacher": "victor-almeida-ivo",
       "student": "rafael-timbo"
+    },
+    {
+      "teacher": "victor-hugo-de-oliveira-bastos",
+      "student": "antonio-italo-lima-lopes"
     },
     {
       "teacher": "victor-hugo-de-oliveira-bastos",
@@ -446,8 +522,8 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-05-25T21:43:24.094Z",
-    "edgeCount": 111,
-    "respondentCount": 34
+    "generatedAt": "2026-05-26T06:38:12.387Z",
+    "edgeCount": 130,
+    "respondentCount": 40
   }
 }
