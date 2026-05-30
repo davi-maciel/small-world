@@ -38,6 +38,10 @@
     },
     {
       "teacher": "bruno-makoto-tanabe-de-lima",
+      "student": "arthur-jiun-wei-hwang"
+    },
+    {
+      "teacher": "bruno-makoto-tanabe-de-lima",
       "student": "gabriel-mazili-pedroza"
     },
     {
@@ -166,11 +170,19 @@
     },
     {
       "teacher": "gabriel-golfetti",
+      "student": "arthur-jiun-wei-hwang"
+    },
+    {
+      "teacher": "gabriel-golfetti",
       "student": "bruno-machado-feltran"
     },
     {
       "teacher": "gabriel-golfetti",
       "student": "caio-yamashita-risseto"
+    },
+    {
+      "teacher": "gabriel-golfetti",
+      "student": "eduardo-yuji-shashike"
     },
     {
       "teacher": "gabriel-golfetti",
@@ -191,6 +203,10 @@
     {
       "teacher": "gabriel-mazili-pedroza",
       "student": "bruno-machado-feltran"
+    },
+    {
+      "teacher": "gabriel-mazili-pedroza",
+      "student": "eduardo-yuji-shashike"
     },
     {
       "teacher": "gabriel-mazili-pedroza",
@@ -218,11 +234,19 @@
     },
     {
       "teacher": "henrique-zanarella",
+      "student": "arthur-jiun-wei-hwang"
+    },
+    {
+      "teacher": "henrique-zanarella",
       "student": "bruno-machado-feltran"
     },
     {
       "teacher": "henrique-zanarella",
       "student": "caio-yamashita-risseto"
+    },
+    {
+      "teacher": "henrique-zanarella",
+      "student": "eduardo-yuji-shashike"
     },
     {
       "teacher": "henrique-zanarella",
@@ -239,6 +263,10 @@
     {
       "teacher": "hugo-fares-menhem",
       "student": "felipe-maia-silva"
+    },
+    {
+      "teacher": "ian-seo-takose",
+      "student": "arthur-jiun-wei-hwang"
     },
     {
       "teacher": "ian-seo-takose",
@@ -278,11 +306,19 @@
     },
     {
       "teacher": "lucas-lourenco-hernandes",
+      "student": "arthur-jiun-wei-hwang"
+    },
+    {
+      "teacher": "lucas-lourenco-hernandes",
       "student": "bruno-machado-feltran"
     },
     {
       "teacher": "lucas-lourenco-hernandes",
       "student": "caio-yamashita-risseto"
+    },
+    {
+      "teacher": "lucas-lourenco-hernandes",
+      "student": "eduardo-yuji-shashike"
     },
     {
       "teacher": "lucas-lourenco-hernandes",
@@ -319,6 +355,10 @@
     {
       "teacher": "lucas-praca-oliveira",
       "student": "tiago-rocha-morais-de-santiago"
+    },
+    {
+      "teacher": "lucas-takayasu",
+      "student": "arthur-jiun-wei-hwang"
     },
     {
       "teacher": "lucas-takayasu",
@@ -522,8 +562,8 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-05-26T06:38:12.387Z",
-    "edgeCount": 130,
-    "respondentCount": 40
+    "generatedAt": "2026-05-30T22:28:19.660Z",
+    "edgeCount": 140,
+    "respondentCount": 42
   }
 }
