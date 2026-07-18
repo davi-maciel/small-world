@@ -60,13 +60,13 @@ export function App({ data, teachingData }: AppProps) {
               Participações
             </Tab>
             <Tab className={tabClass}>
-              Grau de Separação
+              Genealogia
             </Tab>
             <Tab className={tabClass}>
               Explorar Grafo
             </Tab>
             <Tab className={tabClass}>
-              Genealogia
+              Grau de Separação
             </Tab>
           </TabList>
 
@@ -75,11 +75,12 @@ export function App({ data, teachingData }: AppProps) {
               <ParticipationTable students={students} />
             </TabPanel>
             <TabPanel>
-              <PathFinder
+              <GenealogyExplorer
                 students={students}
-                adjacencyList={adjacencyList}
-                fuse={fuse}
                 studentsMap={data.students}
+                teachingEdges={teachingData.edges}
+                teachingAdjacency={teachingAdjacency}
+                teachingPeopleIds={teachingPeopleIds}
               />
             </TabPanel>
             <TabPanel>
@@ -92,12 +93,11 @@ export function App({ data, teachingData }: AppProps) {
               />
             </TabPanel>
             <TabPanel>
-              <GenealogyExplorer
+              <PathFinder
                 students={students}
+                adjacencyList={adjacencyList}
+                fuse={fuse}
                 studentsMap={data.students}
-                teachingEdges={teachingData.edges}
-                teachingAdjacency={teachingAdjacency}
-                teachingPeopleIds={teachingPeopleIds}
               />
             </TabPanel>
           </TabPanels>
