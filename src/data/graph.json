@@ -18,7 +18,7 @@
         {
           "olympiad": "ipho",
           "year": 2026,
-          "medal": null
+          "medal": "gold"
         }
       ]
     },
@@ -1542,7 +1542,7 @@
         {
           "olympiad": "ipho",
           "year": 2026,
-          "medal": null
+          "medal": "silver"
         }
       ]
     },
@@ -1554,7 +1554,7 @@
         {
           "olympiad": "ipho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -1566,7 +1566,7 @@
         {
           "olympiad": "ipho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -1578,7 +1578,7 @@
         {
           "olympiad": "ipho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -6393,7 +6393,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-07-18T04:19:24.959Z",
+    "generatedAt": "2026-07-18T05:15:24.172Z",
     "studentCount": 254,
     "edgeCount": 526
   }
