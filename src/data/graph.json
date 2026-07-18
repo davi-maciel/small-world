@@ -1590,7 +1590,7 @@
         {
           "olympiad": "eupho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -1602,7 +1602,7 @@
         {
           "olympiad": "eupho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -1614,7 +1614,7 @@
         {
           "olympiad": "eupho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -1626,7 +1626,7 @@
         {
           "olympiad": "eupho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -1638,7 +1638,7 @@
         {
           "olympiad": "eupho",
           "year": 2026,
-          "medal": null
+          "medal": "bronze"
         }
       ]
     },
@@ -6393,7 +6393,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2026-05-25T22:46:11.735Z",
+    "generatedAt": "2026-07-18T04:19:24.959Z",
     "studentCount": 254,
     "edgeCount": 526
   }
