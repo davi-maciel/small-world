@@ -6,5 +6,7 @@ export function createStudentSearch(students: Student[]): Fuse<Student> {
     keys: ['name'],
     threshold: 0.3,
     ignoreDiacritics: true,
+    useExtendedSearch: true,
+    ignoreLocation: true,
   });
 }
